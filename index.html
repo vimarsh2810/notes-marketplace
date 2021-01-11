@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+
+    <section id="login">
+      <img src="images/pre-login/banner-with-overlay.jpg" id="login-bg-img" alt="">     
+      
+        <div id="login-content">
+          <div id="logo">
+            <img src="images/pre-login/top-logo.png" class="img-fluid" alt="">
+          </div>
+          <div class="container-cust" id="login-form">
+            <div id="login-heading">
+              <p>Login</p>
+            </div>
+            <div id="login-text-1">
+              <p>Enter your email address and password to login</p>
+            </div>
+            <form>
+              <div class="form-group ip-text">
+                <div class="input-auth">
+                  <label for="email">Email</label>
+                  <input type="text" class="form-control input-field" id="email" placeholder="Enter your email">  
+                </div>
+              </div>
+              <div class="form-group ip-text">
+                <div class="input-auth">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control input-field" id="password" placeholder="Enter your password">
+                  <span toggle="#password" class="far fa-eye field-icon toggle-password"></span>  
+                </div>
+              </div>
+              <div class="form-group ip-cb">
+                <div class="input-auth">
+                <input type="checkbox" id="exampleCheck1" style="margin-bottom: 30px;">
+                <label for="exampleCheck1" style="vertical-align: middle;">Remember me</label>  
+                </div>
+              </div>
+              <div id="login-btn">
+                <button type="submit" class="btn btn-login">LOGIN</button>
+              </div>
+              <div id="login-text-2">
+                <p>Don't have an account?<a href="#"> Sign Up</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+    </section>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

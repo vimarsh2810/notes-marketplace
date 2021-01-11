@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+    
+    <section id="nav-header" style="height: 100px;">
+      <header>
+        <nav class="navbar navbar-expand-md fixed-top white-nav">
+          <div class="container">
+            <div class="img-logo" style="margin-top: auto; margin-bottom: auto;">
+              <a href="" class="navbar-brand">
+                <img src="images/logo.png" class="img-fluid" alt="">
+              </a>
+            </div>
+  
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" style="margin-left: auto; float: right;" id="navbarSupportedContent">
+              <ul class="navbar-nav" style="margin-left: auto;">
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="admin-dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item active">
+                  <div class="dropdown">
+                    <a style="cursor: pointer;" class="nav-link purple-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">Notes</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="notes-under-review.html">Notes Under Review</a> 
+                      <a class="dropdown-item" href="published-notes.html">Published Notes</a> 
+                      <a class="dropdown-item" href="downloaded-notes.html">Downloaded Notes</a> 
+                      <a class="dropdown-item" href="rejected-notes.html">Rejected Notes</a> 
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="members.html">Members</a>
+                </li>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <a style="cursor: pointer;" class="nav-link purple-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">Reports</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="spam.html">Spam Reports</a> 
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <a style="cursor: pointer;" class="nav-link purple-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">Settings</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="manage-system-configuration.html">Manage System Configurations</a> 
+                      <a class="dropdown-item" href="manage-admin.html">Manage Administrators</a> 
+                      <a class="dropdown-item" href="manage-category.html">Manage Category</a> 
+                      <a class="dropdown-item" href="manage-type.html">Manage Type</a> 
+                      <a class="dropdown-item" href="manage-country.html">Manage Countries</a> 
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <a style="cursor: pointer;" class="nav-link purple-link pro-pic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src="images/reviewer-1.png" alt="">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="admin-my-profile.html">Update Profile</a> 
+                      <a class="dropdown-item" href="change-password.html">Change Password</a> 
+                      <a class="dropdown-item" href="index.html" style="color: #6255a5;">LOGOUT</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a id="nav-btn" class="nav-link btn btn-login-navbar-purple white-link d-flex align-items-center" href="#" >Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </section>
+    
+    <section id="admin-dashboard-page">
+      <div class="container">
+        
+        <div id="admin-dashboard">
+
+          <div id="admin-dashboard-heading">
+            <h3>Dashboard</h3>
+          </div>
+
+          <div class="row" id="admin-dashboard-content">
+            <div class="col-xl-4 col-sm-4 col-12">
+              <div class="admin-dashboard-content-wrapper">
+                <div class="admin-dashboard-content-inner">
+                  <h3>20</h3>
+                  <p>Numbers of Notes in Review for Publish</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-sm-4 col-12">
+              <div class="admin-dashboard-content-wrapper">
+                <div class="admin-dashboard-content-inner">
+                  <h3>103</h3>
+                  <p>Number of new Notes Downloaded(last 7 days)</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-sm-4 col-12">
+              <div class="admin-dashboard-content-wrapper">
+                <div class="admin-dashboard-content-inner">
+                  <h3>223</h3>
+                  <p>Number of new Registraion(last 7 days)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="adm-published-notes">
+
+          <div class="table-wrapper-inner">
+
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <div class="table-heading">
+                  <h3 style="font-size: 30px; line-height: 34px;">Published Notes</h3>
+                </div>
+              </div>
+              <div class="col-md-6 col-12 d-flex justify-content-end align-items-center" style="margin-bottom: 10px;">
+                <input type="text" class="form-control search-ip input-field common-search" style="display: inline-block;" id="published-search"
+                  placeholder="Search">
+                <a class="btn btn-search btn-cmn common-btn" id="published-btn">SEARCH</a>
+                <select class="form-control" id="select-month" required>
+                  <option value="" selected hidden>Month</option>
+                  <option value="Computer Science">January</option>
+                  <option value="Mathematics">February</option>
+                </select>
+              </div>
+              <div id="alt-select-month" class="col-md-6  col-12">
+                <select class="form-control" id="select-month-alt" required>
+                  <option value="" selected hidden>Month</option>
+                  <option value="Computer Science">January</option>
+                  <option value="Mathematics">February</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table id="pager" class="table tablesorter data-table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="action-th">SR NO.</th>
+                    <th scope="col">TITLE</th>
+                    <th scope="col">CATEOGORY</th>
+                    <th scope="col" class="action-th">ATTACHMENT SIZE</th>
+                    <th scope="col" class="action-th">SELL TYPE</th>
+                    <th scope="col">PRICE</th>
+                    <th scope="col">PUBLISHER</th>
+                    <th scope="col">PUBLISHED DATE</th>
+                    <th scope="col" class="wrappable action-th">NUMBER OF DOWNLOADS</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="published-tbody">
+                  <tr>
+                    <td class="action-img-td">1</td>
+                    <td>Data Science</td>
+                    <td>Science</td>
+                    <td class="action-img-td">10KB</td>
+                    <td class="action-img-td">Free</td>
+                    <td>$0</td>
+                    <td>Pritesh Panchal</td>
+                    <td>02-01-2021, 10:10</td>
+                    <td class="action-img-td">10</td>
+                    <td><img src="images/admin/dots.svg" alt=""></td>
+                  </tr>
+                  <tr>
+                    <td class="action-img-td">2</td>
+                    <td>Accounts</td>
+                    <td>Commerce</td>
+                    <td class="action-img-td">23 MB</td>
+                    <td class="action-img-td">Paid</td>
+                    <td>$22</td>
+                    <td>Rahil Shah</td>
+                    <td>03-01-2021, 10:10</td>
+                    <td class="action-img-td">15</td>
+                    <td><img src="images/admin/dots.svg" alt=""></td>
+                  </tr>
+                  <tr>
+                    <td class="action-img-td">3</td>
+                    <td>Social Studies</td>
+                    <td>Social</td>
+                    <td class="action-img-td">3 MB</td>
+                    <td class="action-img-td">Paid</td>
+                    <td>$56</td>
+                    <td>Pritesh Panchal</td>
+                    <td>01-01-2021, 10:10</td>
+                    <td class="action-img-td">10</td>
+                    <td><img src="images/admin/dots.svg" alt=""></td>
+                  </tr>
+                  <tr>
+                    <td class="action-img-td">4</td>
+                    <td>AI</td>
+                    <td>IT</td>
+                    <td class="action-img-td">1 MB</td>
+                    <td class="action-img-td">Free</td>
+                    <td>$0</td>
+                    <td>Vijay Vaishnav</td>
+                    <td>05-01-2021, 10:10</td>
+                    <td class="action-img-td">34</td>
+                    <td><img src="images/admin/dots.svg" alt=""></td>
+                  </tr>
+                  <tr>
+                    <td class="action-img-td">5</td>
+                    <td>World War 2</td>
+                    <td>History</td>
+                    <td class="action-img-td">105 KB</td>
+                    <td class="action-img-td">Paid</td>
+                    <td>$9</td>
+                    <td>Mehul Patel</td>
+                    <td>04-01-2021, 10:10</td>
+                    <td class="action-img-td">9</td>
+                    <td><img src="images/admin/dots.svg" alt=""></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="pageNavPosition" class="pager-nav" style="margin-bottom: 30px;"></div>
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+
+
+    <hr style="margin: 0;">
+    <footer class="text-left">
+      
+      <div class="container">
+        <div class="row" style="height: 80px;">
+          <div class="col-xl-12" style="display: inline-block;">
+            <div class="footer-wrap">
+              <p>Copyright &copy; TatvaSoft All Rights Reserved</p>
+              <ul class="social-list">
+                <li><a href="#"><img src="images/facebook.png" alt=""></a></li>
+                <li><a href="#"><img src="images/linkedin.png" alt=""></a></li>
+                <li><a href="#"><img src="images/twitter.png" alt=""></a></li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+
+    <hr style="margin: 0;">
+    <footer class="text-left" id="admin-ft">
+      
+      <div class="container">
+        <div class="row" id="footer-row">
+          <div class="col-xl-12">
+            <div class="footer-wrap-adm">
+              <p class="ft-left" style="margin-bottom: 0;">Version : 1.1.24</p>
+              <p class="ft-right">Copyright &copy; TatvaSoft All Rights Reserved</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/jquery.tablesorter.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Add Administrator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+    
+    <section id="nav-header" style="height: 100px;">
+      <header>
+        <nav class="navbar navbar-expand-md fixed-top white-nav">
+          <div class="container">
+            <div class="img-logo" style="margin-top: auto; margin-bottom: auto;">
+              <a href="" class="navbar-brand">
+                <img src="images/logo.png" class="img-fluid" alt="">
+              </a>
+            </div>
+  
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" style="margin-left: auto; float: right;" id="navbarSupportedContent">
+              <ul class="navbar-nav" style="margin-left: auto;">
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="admin-dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item active">
+                  <div class="dropdown">
+                    <a style="cursor: pointer;" class="nav-link purple-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">Notes</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="notes-under-review.html">Notes Under Review</a> 
+                      <a class="dropdown-item" href="published-notes.html">Published Notes</a> 
+                      <a class="dropdown-item" href="downloaded-notes.html">Downloaded Notes</a> 
+                      <a class="dropdown-item" href="rejected-notes.html">Rejected Notes</a> 
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="members.html">Members</a>
+                </li>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <a style="cursor: pointer;" class="nav-link purple-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">Reports</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="spam.html">Spam Reports</a> 
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <a style="cursor: pointer;" class="nav-link purple-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">Settings</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="manage-system-configuration.html">Manage System Configurations</a> 
+                      <a class="dropdown-item" href="manage-admin.html">Manage Administrators</a> 
+                      <a class="dropdown-item" href="manage-category.html">Manage Category</a> 
+                      <a class="dropdown-item" href="manage-type.html">Manage Type</a> 
+                      <a class="dropdown-item" href="manage-country.html">Manage Countries</a> 
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <a style="cursor: pointer;" class="nav-link purple-link pro-pic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src="images/reviewer-1.png" alt="">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="admin-my-profile.html">Update Profile</a> 
+                      <a class="dropdown-item" href="change-password.html">Change Password</a> 
+                      <a class="dropdown-item" href="index.html" style="color: #6255a5;">LOGOUT</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a id="nav-btn" class="nav-link btn btn-login-navbar-purple white-link d-flex align-items-center" href="#" >Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </section>
+
+    <section id="add-admin">
+      
+      <div class="container">
+        <div id="add-admin-content">
+      
+          <div class="add-admin-headings">
+            <h3>Add Administrator</h3>
+          </div>
+
+          <div class="row">
+
+            <div class="col-xl-6 col-12-6 col-12">
+
+                <form action="">
+                  <div class="ip-field">
+                    <label for="" class="add-admin-lbl">First Name *</label>
+                    <input type="text" class="form-control input-field" id="" placeholder="Enter your first name">
+                  </div>
+                  <div class="ip-field">
+                    <label for="" class="add-admin-lbl">Last Name *</label>
+                    <input type="text" class="form-control input-field" id="" placeholder="Enter your last name">
+                  </div>
+                  <div class="ip-field">
+                    <label for="" class="add-admin-lbl">Email *</label>
+                    <input type="text" class="form-control input-field" id="" placeholder="Enter your email address">
+                  </div>
+                  <div class="ip-field">
+                    <label for="" class="add-admin-lbl">Phone Number</label>
+                    <div class="row">
+                      <div class="col-xl-3 col-sm-3 col-3">
+                        <select class="form-control" name="ph-code" id="ph-code">
+                          <option value="">+91</option>
+                          <option value="">+92</option>
+                          <option value="">+93</option>
+                          <option value="">+94</option>
+                        </select>
+                      </div>
+                      <div class="col-xl-9 col-sm-9 col-9">
+                        <input type="text" class="form-control input-field" id="" placeholder="Enter your phone number">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="add-admin-btn" style="display: inline-block;">
+                    <a class="btn btn-add btn-cmn" href="#" >SUBMIT</a>
+                  </div>
+
+                </form>
+              </div>
+              
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr style="margin: 0;">
+    <footer class="text-left" id="admin-ft">
+      
+      <div class="container">
+        <div class="row" id="footer-row">
+          <div class="col-xl-12">
+            <div class="footer-wrap-adm">
+              <p class="ft-left" style="margin-bottom: 0;">Version : 1.1.24</p>
+              <p class="ft-right">Copyright &copy; TatvaSoft All Rights Reserved</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/jquery.tablesorter.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

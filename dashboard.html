@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>User Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+    
+    <section id="nav-header" style="height: 100px;">
+      <header>
+        <nav class="navbar navbar-expand-md fixed-top white-nav">
+          <div class="container">
+            <div class="img-logo">
+              <a href="" class="navbar-brand">
+                <img src="images/logo.png" class="img-fluid" alt="">
+              </a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" style="margin-left: auto; float: right;" id="navbarSupportedContent">
+              <ul class="navbar-nav" style="margin-left: auto;">
+                <li class="nav-item active">
+                  <a class="nav-link purple-link" href="search.html">Search Notes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="">Sell Your Notes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="buyers-requests.html">Buyer Requests</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="FAQ.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="contact-us.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a id="nav-btn" class="nav-link btn btn-login-navbar-purple white-link d-flex align-items-center" href="#" >Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </section>
+    
+    <section id="dashboard-page">
+      <div class="container">
+        
+        <div id="dashboard">
+        
+          <div id="dashboard-heading">
+            <h3>Dashboard</h3>
+          </div>
+        
+          <div class="row" id="dashboard-content">
+            <div class="col-xl-6 col-lg-6 col-12" id="user-dash-left">
+              <div class="container">
+                <div class="row" id="dashboard-left">
+                  <div class="col-xl-4 col-lg-4 col-4 dashboard-content-wrapper-left" style="border-right: 1px solid #d1d1d1;">
+                    <div class="dashboard-content-inner">
+                      <img src="images/Dashboard/earning-icon.svg" alt="">
+                      <h2>My Earning</h2>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-4 dashboard-content-wrapper-left" style="position: relative;">
+                    <div class="dashboard-content-inner">
+                      <h3>100</h3>
+                      <p>Number of Notes Sold</p>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-4 dashboard-content-wrapper-left" style="position: relative;">
+                    <div class="dashboard-content-inner">
+                      <h3>102</h3>
+                      <p>Buyer Requests</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-sm-4 col-12">
+              <div class="dashboard-content-wrapper">
+                <div class="dashboard-content-inner">
+                  <h3>38</h3>
+                  <p>My Downloads</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-sm-4 col-12">
+              <div class="dashboard-content-wrapper">
+                <div class="dashboard-content-inner">
+                  <h3>12</h3>
+                  <p>My Rejected Notes</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-sm-4 col-12">
+              <div class="dashboard-content-wrapper">
+                <div class="dashboard-content-inner">
+                  <h3>102</h3>
+                  <p>Buyer Requests</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+
+        <div id="in-progress">
+
+          <div class="table-wrapper-inner">
+
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <div class="table-heading">
+                  <h3 style="font-size: 30px; line-height: 34px;">In Progress Notes</h3>
+                </div>
+              </div>
+              <div class="col-md-6 col-12 d-flex justify-content-end align-items-center" style="margin-bottom: 10px;">
+                <input type="text" class="form-control search-ip input-field common-search" style="display: inline-block;" id="in-progress-search"
+                  placeholder="Search">
+                <a class="btn btn-search btn-cmn common-btn" id="in-progress-btn" style="margin-bottom: 10px;">SEARCH</a>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table tablesorter data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">ADDED DATE</th>
+                    <th scope="col">TITLE</th>
+                    <th scope="col">CATEOGORY</th>
+                    <th scope="col">STATUS</th>
+                    <th scope="col" class="action-th">ACTION</th>
+                  </tr>
+                </thead>
+                <tbody id="in-progress-tbody">
+                  <tr>
+                    <td>02-01-2021</td>
+                    <td>Data Science</td>
+                    <td>Science</td>
+                    <td>Draft</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/edit.png" alt="" style="margin-right: 10px;">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>01-01-2021</td>
+                    <td>Accounts</td>
+                    <td>Commerce</td>
+                    <td>In Review</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>04-01-2021</td>
+                    <td>Social Studies</td>
+                    <td>Social</td>
+                    <td>Submitted</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>03-01-2021</td>
+                    <td>Artificial Intelligence</td>
+                    <td>IT</td>
+                    <td>Submitted</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>05-01-2021</td>
+                    <td>Data Structure</td>
+                    <td>IT</td>
+                    <td>Draft</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/edit.png" alt="" style="margin-right: 10px;">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+        </div>
+
+        <div id="published-notes">
+
+          <div class="table-wrapper-inner">
+
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <div class="table-heading">
+                  <h3 style="font-size: 30px; line-height: 34px;">Published Notes</h3>
+                </div>
+              </div>
+              <div class="col-md-6 col-12 d-flex justify-content-end align-items-center" style="margin-bottom: 10px;">
+                <input type="text" class="form-control search-ip input-field common-search" style="display: inline-block;" id="published-search"
+                  placeholder="Search">
+                <a class="btn btn-search btn-cmn common-btn" id="published-btn" style="margin-bottom: 10px;">SEARCH</a>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table id="pager" class="table tablesorter data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">ADDED DATE</th>
+                    <th scope="col">TITLE</th>
+                    <th scope="col">CATEOGORY</th>
+                    <th scope="col">SELL TYPE</th>
+                    <th scope="col">PRICE</th>
+                    <th scope="col" class="action-th">ACTION</th>
+                  </tr>
+                </thead>
+                <tbody id="published-tbody">
+                  <tr>
+                    <td>02-01-2021</td>
+                    <td>Data Science</td>
+                    <td>Science</td>
+                    <td>Paid</td>
+                    <td>$575</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>01-01-2021</td>
+                    <td>Accounts</td>
+                    <td>Commerce</td>
+                    <td>Free</td>
+                    <td>$0</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>04-01-2021</td>
+                    <td>Social Studies</td>
+                    <td>Social</td>
+                    <td>Free</td>
+                    <td>$0</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>03-01-2021</td>
+                    <td>Artificial Intelligence</td>
+                    <td>IT</td>
+                    <td>Paid</td>
+                    <td>$650</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>05-01-2021</td>
+                    <td>Data Structure</td>
+                    <td>IT</td>
+                    <td>Free</td>
+                    <td>$0</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>04-01-2021</td>
+                    <td>Social Studies</td>
+                    <td>Social</td>
+                    <td>Free</td>
+                    <td>$0</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>03-01-2021</td>
+                    <td>Artificial Intelligence</td>
+                    <td>IT</td>
+                    <td>Paid</td>
+                    <td>$650</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>05-01-2021</td>
+                    <td>Data Structure</td>
+                    <td>IT</td>
+                    <td>Free</td>
+                    <td>$0</td>
+                    <td class="action-img-td">
+                      <div class="action-img">
+                        <img src="images/Dashboard/eye.png" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="margin-bottom: 30px;" id="pageNavPosition" class="pager-nav"></div>
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+
+
+    <hr style="margin: 0;">
+    <footer class="text-left">
+      
+      <div class="container">
+        <div class="row" style="height: 80px;">
+          <div class="col-xl-12" style="display: inline-block;">
+            <div class="footer-wrap">
+              <p>Copyright &copy; TatvaSoft All Rights Reserved</p>
+              <ul class="social-list">
+                <li><a href="#"><img src="images/facebook.png" alt=""></a></li>
+                <li><a href="#"><img src="images/linkedin.png" alt=""></a></li>
+                <li><a href="#"><img src="images/twitter.png" alt=""></a></li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/jquery.tablesorter.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+
+  </body>
+</html>

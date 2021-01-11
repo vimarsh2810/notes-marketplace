@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <title>Manage Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+  <section id="nav-header" style="height: 100px;">
+    <header>
+      <nav class="navbar navbar-expand-md fixed-top white-nav">
+        <div class="container">
+          <div class="img-logo" style="margin-top: auto; margin-bottom: auto;">
+            <a href="" class="navbar-brand">
+              <img src="images/logo.png" class="img-fluid" alt="">
+            </a>
+          </div>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" style="margin-left: auto; float: right;" id="navbarSupportedContent">
+            <ul class="navbar-nav" style="margin-left: auto;">
+              <li class="nav-item">
+                <a class="nav-link purple-link" href="admin-dashboard.html">Dashboard</a>
+              </li>
+              <li class="nav-item active">
+                <div class="dropdown">
+                  <a style="cursor: pointer;" class="nav-link purple-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">Notes</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="notes-under-review.html">Notes Under Review</a> 
+                    <a class="dropdown-item" href="published-notes.html">Published Notes</a> 
+                    <a class="dropdown-item" href="downloaded-notes.html">Downloaded Notes</a> 
+                    <a class="dropdown-item" href="rejected-notes.html">Rejected Notes</a> 
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link purple-link" href="members.html">Members</a>
+              </li>
+              <li class="nav-item">
+                <div class="dropdown">
+                  <a style="cursor: pointer;" class="nav-link purple-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">Reports</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="spam.html">Spam Reports</a> 
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="dropdown">
+                  <a style="cursor: pointer;" class="nav-link purple-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">Settings</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="manage-system-configuration.html">Manage System Configurations</a> 
+                    <a class="dropdown-item" href="manage-admin.html">Manage Administrators</a> 
+                    <a class="dropdown-item" href="manage-category.html">Manage Category</a> 
+                    <a class="dropdown-item" href="manage-type.html">Manage Type</a> 
+                    <a class="dropdown-item" href="manage-country.html">Manage Countries</a> 
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="dropdown">
+                  <a style="cursor: pointer;" class="nav-link purple-link pro-pic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="images/reviewer-1.png" alt="">
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="admin-my-profile.html">Update Profile</a> 
+                    <a class="dropdown-item" href="change-password.html">Change Password</a> 
+                    <a class="dropdown-item" href="index.html" style="color: #6255a5;">LOGOUT</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a id="nav-btn" class="nav-link btn btn-login-navbar-purple white-link d-flex align-items-center" href="#" >Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  </section>
+
+  <section id="manage-admin">
+    <div class="container">
+      <div id="manage-admin-table">
+
+        <div class="table-wrapper-inner">
+          <div class="table-heading-1">
+            <h3>Manage Administrator</h3>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <div class="search-btn">
+                <a class="btn btn-search btn-cmn" id="add-admin-btn" href="add-administrator.html">ADD ADMIN</a>
+              </div>
+            </div>
+            <div class="col-md-6 col-12 d-flex justify-content-end align-items-center">
+              <input type="text" class="form-control search-ip input-field common-search" style="display: inline-block;" id="mng-adm-search"
+                placeholder="Search">
+              <a class="btn btn-search btn-cmn common-btn" id="mng-adm-btn">SEARCH</a>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table id="pager" class="table tablesorter data-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="sr-col">SR NO.</th>
+                  <th scope="col">FIRST NAME</th>
+                  <th scope="col">LAST NAME</th>
+                  <th scope="col">EMAIL</th>
+                  <th scope="col">PHONE NO.</th>
+                  <th scope="col">DATE ADDED</th>
+                  <th scope="col">ACTIVE</th>
+                  <th scope="col" class="action-th">ACTION</th>
+                </tr>
+              </thead>
+              <tbody class="common-tbody">
+                <tr>
+                  <td class="sr-col">1</td>
+                  <td>Khayati</td>
+                  <td>Patel</td>
+                  <td>khayati@gmail.com</td>
+                  <td>1234567890</td>
+                  <td>01-01-2021</td>
+                  <td>Yes</td>
+                  <td class="action-img-td">
+                    <div class="action-img">
+                      <img src="images/Dashboard/edit.png" alt="" style="margin-right: 10px;">
+                      <img src="images/Dashboard/eye.png" alt="">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="sr-col">2</td>
+                  <td>Rahul</td>
+                  <td>Shah</td>
+                  <td>rahul@gmail.com</td>
+                  <td>1234567890</td>
+                  <td>01-01-2021</td>
+                  <td>Yes</td>
+                  <td class="action-img-td">
+                    <div class="action-img">
+                      <img src="images/Dashboard/edit.png" alt="" style="margin-right: 10px;">
+                      <img src="images/Dashboard/eye.png" alt="">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="sr-col">3</td>
+                  <td>Suman</td>
+                  <td>Trivedi</td>
+                  <td>suman@gmail.com</td>
+                  <td>1234567890</td>
+                  <td>01-01-2021</td>
+                  <td>Yes</td>
+                  <td class="action-img-td">
+                    <div class="action-img">
+                      <img src="images/Dashboard/edit.png" alt="" style="margin-right: 10px;">
+                      <img src="images/Dashboard/eye.png" alt="">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="sr-col">4</td>
+                  <td>Raj</td>
+                  <td>Malhotra</td>
+                  <td>raj@gmail.com</td>
+                  <td>1234567890</td>
+                  <td>01-01-2021</td>
+                  <td>Yes</td>
+                  <td class="action-img-td">
+                    <div class="action-img">
+                      <img src="images/Dashboard/edit.png" alt="" style="margin-right: 10px;">
+                      <img src="images/Dashboard/eye.png" alt="">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="sr-col">5</td>
+                  <td>Niya</td>
+                  <td>Patel</td>
+                  <td>niya@gmail.com</td>
+                  <td>1234567890</td>
+                  <td>02-01-2021</td>
+                  <td>Yes</td>
+                  <td class="action-img-td">
+                    <div class="action-img">
+                      <img src="images/Dashboard/edit.png" alt="" style="margin-right: 10px;">
+                      <img src="images/Dashboard/eye.png" alt="">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="sr-col">6</td>
+                  <td>Suman</td>
+                  <td>Trivedi</td>
+                  <td>suman@gmail.com</td>
+                  <td>1234567890</td>
+                  <td>01-01-2021</td>
+                  <td>Yes</td>
+                  <td class="action-img-td">
+                    <div class="action-img">
+                      <img src="images/Dashboard/edit.png" alt="" style="margin-right: 10px;">
+                      <img src="images/Dashboard/eye.png" alt="">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="sr-col">7</td>
+                  <td>Raj</td>
+                  <td>Malhotra</td>
+                  <td>raj@gmail.com</td>
+                  <td>1234567890</td>
+                  <td>01-01-2021</td>
+                  <td>Yes</td>
+                  <td class="action-img-td">
+                    <div class="action-img">
+                      <img src="images/Dashboard/edit.png" alt="" style="margin-right: 10px;">
+                      <img src="images/Dashboard/eye.png" alt="">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="pageNavPosition" class="pager-nav" style="margin-bottom: 30px;"></div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <hr style="margin: 0;">
+    <footer class="text-left" id="admin-ft">
+      
+      <div class="container">
+        <div class="row" id="footer-row">
+          <div class="col-xl-12">
+            <div class="footer-wrap-adm">
+              <p class="ft-left" style="margin-bottom: 0;">Version : 1.1.24</p>
+              <p class="ft-right">Copyright &copy; TatvaSoft All Rights Reserved</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/jquery.tablesorter.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

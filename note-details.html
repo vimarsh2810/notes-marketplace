@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Note Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+
+    <section id="nav-header" style="height: 100px;">
+      <header>
+        <nav class="navbar navbar-expand-md fixed-top white-nav">
+          <div class="container">
+            <div class="img-logo">
+              <a href="" class="navbar-brand">
+                <img src="images/logo.png" class="img-fluid" alt="">
+              </a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" style="margin-left: auto; float: right;" id="navbarSupportedContent">
+              <ul class="navbar-nav" style="margin-left: auto;">
+                <li class="nav-item active">
+                  <a class="nav-link purple-link" href="search.html">Search Notes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="">Sell Your Notes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="buyers-requests.html">Buyer Requests</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="FAQ.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="contact-us.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <a style="cursor: pointer;" class="nav-link purple-link pro-pic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src="images/reviewer-1.png" alt="">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="user-profile.html">Update Profile</a> 
+                      <a class="dropdown-item" href="change-password.html">Change Password</a> 
+                      <a class="dropdown-item" href="index.html" style="color: #6255a5;">LOGOUT</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a id="nav-btn" class="nav-link btn btn-login-navbar-purple white-link d-flex align-items-center" href="#" >Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </section>
+    
+    <section id="note-details-page">
+      <div class="container">
+        <div id="note-details-heading">
+          <p>Notes Details</p>
+        </div>
+        <div class="row" id="note-details">
+          
+          <div class="col-xl-7 col-md-7 col-12" style="display: inline-flex;">
+            <div id="note-details-img">
+              <img src="images/1.jpg" alt="">
+            </div>
+            <div id="note-details-content">
+              <div id="note-details-title">
+                <h3>Computer Science</h3>
+              </div>
+              <div id="note-details-category">
+                <p>Science</p>
+              </div>
+              <div id="note-details-text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus qui fugit nisi porro eius impedit fugiat tempora. 
+                  Aut libero blanditiis hic deserunt aliquam adipisci sint nobis quo quod!
+                </p>
+              </div>
+              <div id="note-details-download-btn">
+                <a class="btn btn-note-details-download btn-cmn" data-toggle="modal" href="#exampleModal">DOWNLOAD/$15</a>
+              </div>
+
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 30px;">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="modal-img">
+                        <img src="images/SUCCESS.png" alt="">
+                      </div>
+                      <div class="modal-main-heading">
+                        <h2>Thank you for purchasing!</h2>
+                      </div>
+                      <div class="modal-main-text">
+                        <h3>Dear Smith,</h3>
+                        <p></span><br>As this is paid note, you need to pay to seller Rahil Shah 
+                        offline. We will send him an email that you want to download this note. He may contact you 
+                        further for payment process completion.</p>
+                        <p>In case, you have urgency, <br>Please contact us on +91 9876543210.</p>
+                        <p>Once he receives the payment and acknowledge us, you will be able to see selected note over my downloads tab.</p>
+                        <p style="margin-bottom: 0;">Have a good day.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="col-xl-5 col-md-5 col-12" style="overflow: hidden;">
+            <div id="note-details-info">
+              <p>Institution: <span class="float-right">University of California</span></p>
+              <p>Country: <span class="float-right">United States</span></p>
+              <p>Course Name: <span class="float-right">Computer Engineering</span></p>
+              <p>Course Code: <span class="float-right">248705</span></p>
+              <p>Professor: <span class="float-right">Mr. Richard Brown</span></p>
+              <p>Number of Pages: <span class="float-right">277</span></p>
+              <p>Approved Date: <span class="float-right">December 30, 2020</span></p>
+              <p>Ratings <span class="float-right star-rating"><img src="images/star.png" alt=""><img src="images/star.png" alt=""><img src="images/star.png" alt=""><img src="images/star.png" alt=""><img src="images/star-white.png" alt=""></span></p>
+              <p id="red-text">5 Users marked this note as inappropriate</p>
+            </div>
+          </div>
+        </div>
+
+        <hr style="background-color: #333333; margin-bottom: 0;">
+
+        
+
+        <div class="row">
+        
+          <div class="col-xl-5 col-lg-5 col-sm-12">
+            <div id="note-details-heading">
+              <p>Notes Preview</p>
+            </div>
+            <iframe src="http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf" scrolling="no" seamless="seamless" frameborder="0"></iframe>
+          </div>
+          <div class="col-xl-7 col-lg-7 col-sm-12">
+            <div id="note-details-heading">
+              <p>Customer Reviews</p>
+            </div>
+            <div id="customer-reviews">
+          
+              <div class="customer-review" style="display: inline-flex;">
+                <div class="cust-rev-img">
+                  <img src="images/Testimonials/team-1.jpg" alt="client" class="img-fluid rounded-circle author-img">
+                </div>
+                <!-- author-info -->
+                <div class="review-content">
+                  <div class="rev-cust-name">
+                    <h3>Richard Brown</h3>
+                  </div>
+                  <div class="rev-ratings">
+                    <div class="star-rating" style="display: inline-flex; width: 100%;">
+                      <img src="images/star.png" class="img-fluid" alt="">
+                      <img src="images/star.png" class="img-fluid" alt="">
+                      <img src="images/star.png" class="img-fluid" alt="">
+                      <img src="images/star.png" class="img-fluid" alt="">
+                      <img src="images/star-white.png" class="img-fluid" alt="">
+                    </div>
+                  </div>
+                  <div class="rev-text">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus porro aut deleniti voluptatem labore
+                      error qui, autem commodi soluta.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <hr style="margin: 0 25px;">
+
+              <div class="customer-review" style="display: inline-flex;">
+                <div class="cust-rev-img">
+                  <img src="images/Testimonials/team-1.jpg" alt="client" class="img-fluid rounded-circle author-img">
+                </div>
+                <!-- author-info -->
+                <div class="review-content">
+                  <div class="rev-cust-name">
+                    <h3>Richard Brown</h3>
+                  </div>
+                  <div class="rev-ratings">
+                    <div class="star-rating" style="display: inline-flex; width: 100%;">
+                      <img src="images/star.png" class="img-fluid" alt="">
+                      <img src="images/star.png" class="img-fluid" alt="">
+                      <img src="images/star.png" class="img-fluid" alt="">
+                      <img src="images/star.png" class="img-fluid" alt="">
+                      <img src="images/star-white.png" class="img-fluid" alt="">
+                    </div>
+                  </div>
+                  <div class="rev-text">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus porro aut deleniti voluptatem labore
+                      error qui, autem commodi soluta.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <hr style="margin: 0 25px;">
+
+              <div class="customer-review" style="display: inline-flex;">
+                <div class="cust-rev-img">
+                  <img src="images/Testimonials/team-1.jpg" alt="client" class="img-fluid rounded-circle author-img">
+                </div>
+                <!-- author-info -->
+                <div class="review-content">
+                  <div class="rev-cust-name">
+                    <h3>Richard Brown</h3>
+                  </div>
+                  <div class="rev-ratings">
+                    <div class="star-rating" style="display: inline-flex; width: 100%;">
+                      <img src="images/star.png" class="img-fluid" alt="">
+                      <img src="images/star.png" class="img-fluid" alt="">
+                      <img src="images/star.png" class="img-fluid" alt="">
+                      <img src="images/star.png" class="img-fluid" alt="">
+                      <img src="images/star-white.png" class="img-fluid" alt="">
+                    </div>
+                  </div>
+                  <div class="rev-text">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus porro aut.
+                    </p>
+                  </div>
+                </div>
+              </div>
+          
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr style="margin: 0;">
+    <footer class="text-left">
+      
+      <div class="container">
+        <div class="row" style="height: 80px;">
+          <div class="col-xl-12" style="display: inline-block;">
+            <div class="footer-wrap">
+              <p>Copyright &copy; TatvaSoft All Rights Reserved</p>
+              <ul class="social-list">
+                <li><a href="#"><img src="images/facebook.png" alt=""></a></li>
+                <li><a href="#"><img src="images/linkedin.png" alt=""></a></li>
+                <li><a href="#"><img src="images/twitter.png" alt=""></a></li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/jquery.tablesorter.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>User Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+    
+    <section id="nav-header" style="height: 100px;">
+      <header>
+        <nav class="navbar navbar-expand-md fixed-top white-nav">
+          <div class="container">
+            <div class="img-logo">
+              <a href="" class="navbar-brand">
+                <img src="images/logo.png" class="img-fluid" alt="">
+              </a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" style="margin-left: auto; float: right;" id="navbarSupportedContent">
+              <ul class="navbar-nav" style="margin-left: auto;">
+                <li class="nav-item active">
+                  <a class="nav-link purple-link" href="search.html">Search Notes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="">Sell Your Notes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="buyers-requests.html">Buyer Requests</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="FAQ.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link purple-link" href="contact-us.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <a style="cursor: pointer;" class="nav-link purple-link pro-pic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src="images/reviewer-1.png" alt="">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="user-profile.html">Update Profile</a> 
+                      <a class="dropdown-item" href="change-password.html">Change Password</a> 
+                      <a class="dropdown-item" href="index.html" style="color: #6255a5;">LOGOUT</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a id="nav-btn" class="nav-link btn btn-login-navbar-purple white-link d-flex align-items-center" href="#" >Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </section>
+
+    <section id="add-note">
+      <div class="add-note-header">
+        <h1>User Profile</h1>
+      </div>
+    </section>
+    
+    <section id="user-profile">
+      <div class="container">
+        <div id="user-profile-details">
+          
+          <div class="user-profile-heading">
+            <h3>Basic Profile Details</h3>
+          </div>
+          <div class="row">
+          
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="user-profile-fname" class="add-note-lbl">First Name*</label>
+              <input type="text" class="form-control input-field" id="user-profile-fname" placeholder="Enter your first name">
+            </div>
+          
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="user-profile-lname" class="add-note-lbl">Last Name*</label>
+              <input type="text" class="form-control input-field" id="user-profile-lname" placeholder="Enter your last name">
+            </div>
+          
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="user-profile-email" class="add-note-lbl">Email*</label>
+              <input type="text" class="form-control input-field" id="user-profile-email" placeholder="Enter your email address">
+            </div>
+
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="user-profile-dob" class="add-note-lbl">Date of Birth</label>
+              <input type="date" class="form-control input-field" id="user-profile-dob" placeholder="Enter your date of birth">
+            </div>
+          
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="gender" class="add-note-lbl">Gender</label>
+              <div>
+                <select class="form-control" name="gender" id="gender" required>
+                  <option value="" selected hidden>Select your gender</option>
+                  <option value="Professional">Male</option>
+                  <option value="High School">Female</option>
+                </select>
+              </div>
+          
+            </div>
+          
+            <div class="col-xl-6 col-md-6 col-12">
+              <div class="row">
+                <label for="type-note" class="add-note-lbl" style="width: 100%; padding-left: 15px;">Phone Number</label>
+                <div class="col-xl-3 col-md-3 col-3">
+                  <select class="form-control" name="ph-code" id="ph-code">
+                    <option value="+91">+91</option>
+                    <option value="+92">+92</option>
+                    <option value="+93">+93</option>
+                    <option value="+94">+94</option>
+                  </select>
+                </div>
+                <div class="col-xl-9 col-md-9 col-9" style="padding-left: 0;">
+                  <input type="text" class="form-control input-field" placeholder="Enter your phone number" id="ph-no">
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="user-profile-display-picture" class="add-note-lbl">Display Picture</label><br>
+              <label for="user-profile-display-picture" class="input-file"> 
+                <div class="inside-lbl">
+                  <img src="images/Add-notes/upload-file.png" alt=""><br>
+                  <p>Upload a photo</p>
+                </div>
+              </label>
+              <input type="file" class="form-control input-field" id="user-profile-display-picture" accept="images/*" placeholder="Upload a photo">
+            </div>
+          
+          </div>
+
+        </div>
+
+        <div id="address-details">
+
+          <div class="user-profile-heading">
+            <h3>Address Details</h3>
+          </div>
+
+          <div class="row">
+
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="addr-ln-1" class="add-note-lbl">Address Line 1*</label>
+              <input type="text" class="form-control input-field" id="addr-ln-1" placeholder="Enter your address">
+            </div>
+          
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="addr-ln-2" class="add-note-lbl">Address Line 2*</label>
+              <input type="text" class="form-control input-field" id="addr-ln-2" placeholder="Enter your address">
+            </div>
+
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="addr-city" class="add-note-lbl">City*</label>
+              <input type="text" class="form-control input-field" id="addr-city" placeholder="Enter your city">
+            </div>
+
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="addr-state" class="add-note-lbl">State*</label>
+              <input type="text" class="form-control input-field" id="addr-state" placeholder="Enter your state">
+            </div>
+
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="addr-zip" class="add-note-lbl">ZipCode*</label>
+              <input type="text" class="form-control input-field" id="addr-zip" placeholder="Enter your zipcode">
+            </div>
+
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="addr-cnty" class="add-note-lbl">Country</label>
+              <div>
+                <select class="form-control" id="addr-cnty" required>
+                  <option value="" selected hidden>Select your country</option>
+                  <option value="Professional">India</option>
+                  <option value="High School">USA</option>
+                  <option value="High School">UK</option>
+                  <option value="High School">Canada</option>
+                </select>
+              </div>
+          
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="university-details">
+
+          <div class="user-profile-heading">
+            <h3>University and College Information</h3>
+          </div>
+
+          <div class="row">
+
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="user-profile-univeristy" class="add-note-lbl">University</label>
+              <input type="text" class="form-control input-field" id="user-profile-univeristy" placeholder="Enter your univeristy">
+            </div>
+          
+            <div class="col-xl-6 col-md-6 col-12">
+              <label for="user-profile-college" class="add-note-lbl">College</label>
+              <input type="text" class="form-control input-field" id="user-profile-college" placeholder="Enter your college">
+            </div>
+
+          </div>
+        </div>
+
+        <div class="user-profile-btn" style="display: inline-block; margin-bottom: 50px;">
+          <a class="btn btn-cmn btn-user-profile" href="#">SUBMIT</a>
+        </div>
+        
+      </div>
+    </section>
+
+    <hr style="margin: 0;">
+    <footer class="text-left">
+      
+      <div class="container">
+        <div class="row" style="height: 80px;">
+          <div class="col-xl-12" style="display: inline-block;">
+            <div class="footer-wrap">
+              <p>Copyright &copy; TatvaSoft All Rights Reserved</p>
+              <ul class="social-list">
+                <li><a href="#"><img src="images/facebook.png" alt=""></a></li>
+                <li><a href="#"><img src="images/linkedin.png" alt=""></a></li>
+                <li><a href="#"><img src="images/twitter.png" alt=""></a></li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+
+  </body>
+</html>

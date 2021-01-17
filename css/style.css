@@ -259,6 +259,7 @@ span.field-icon:hover {
 #home {
   height: 620px;
   background-image: url("../images/Homepage/banner-with-overlay.jpg");
+  position: relative;
 }
 
 #home #home-heading h2 {

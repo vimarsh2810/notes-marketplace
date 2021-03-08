@@ -90,6 +90,12 @@
 }
 
 @media (max-width: 767.9px) {
+
+  .show-pass {
+    right: 68px;
+    top: 35px;
+  }
+  
   .mem-det-value p,
   .mem-det-field p {
     font-size: 12px;

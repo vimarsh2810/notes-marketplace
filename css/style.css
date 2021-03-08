@@ -105,6 +105,16 @@ body {
   height: 50px;
 }
 
+.show-pass {
+  position: absolute;
+  right: 62px;
+  top: 39px;
+  z-index: 1000;
+  font-size: 20px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
 #login input[type="text"].form-control:focus,
 #sign-up input[type="text"].form-control:focus {
   border: 1px solid #6255a5;
@@ -1783,6 +1793,10 @@ nav li .dropdown .dropdown-menu {
 /* =========================================
                 Navbar
 ============================================ */
+
+#nav-header {
+  height: 100px;
+}
 
 nav.navbar {
   height: 100px;

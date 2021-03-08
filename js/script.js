@@ -1,18 +1,14 @@
 
 //  Toggle Password
 
-$(".toggle-password").click(function() {
-
-  $(this).toggleClass("fa-eye fa-eye-slash");
-  console.log($(this).attr("toggle"));
+$(".toggle-password").click(function () {
   var input = $($(this).attr("toggle"));
   if (input.attr("type") == "password") {
-    input.attr("type", "text");
+      input.attr("type", "text");
   } else {
-    input.attr("type", "password");
+      input.attr("type", "password");
   }
 });
-
 
 // FAQ
 $('.question').click(function() {

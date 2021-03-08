@@ -1,0 +1,57 @@
+﻿@model InitialNotesMarketplace.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="~/Content/responsive.css">
+</head>
+<body style="background-color: rgba(0,0,0,0.5); position: relative">
+    <section id="email-verification" style="background-color: white; width: fit-content; position:absolute; left: 50%; top: 50%; transform:translate(-50%, -50%)">
+        <table>
+            <tr>
+                <td><img src="~/images/logo.png" id="ev-logo" alt=""></td>
+            </tr>
+            <tr>
+                <td><h2>Email Verification</h2></td>
+            </tr>
+            <tr>
+                <td><h3>Dear Smith,</h3></td>
+            </tr>
+            <tr>
+                <td><p>Thanks for Signing up!<br>Simply click below for email verification.</p></td>
+            </tr>
+            <tr>
+                <td>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-email-verification">VERIFY EMAIL ADDRESS</button>
+                    }
+                    @*<button type="submit" class="">*@
+                    @*@Html.RouteLink("VERIFY EMAIL ADDRESS", new { action = "EmailVerification", controller = "Account" }, new { @class = "btn btn-email-verification", style = "text-decoration: none; color: white; display: inline-flex; align-items: center; justify-content: center; " })*@
+                    @*</button>*@
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/jquery.tablesorter.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/script.js"></script>
+
+</body>
+</html>

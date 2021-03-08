@@ -1,0 +1,49 @@
+﻿@model IEnumerable<InitialNotesMarketplace.Models.SellerNote>
+@using InitialNotesMarketplace.Models;
+
+<div class="row res-row" id="results-row" data-tr-per-page="9">
+    <div id="filter-result-heading">
+        <h3>Total @Model.Count() notes</h3>
+    </div>
+
+    @foreach (SellerNote snote in Model)
+    {
+        <div class="col-lg-4 col-sm-6 col-12 res-note">
+            @*<a href="note-details.html">*@
+            <div class="res-book">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="img-book">
+                            <img src=@snote.DisplayPicture class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-xl-12">
+                        <div class="res-book-info">
+                            <div class="res-book-info-wrapper">
+                                <div class="res-book-title">
+                                    <h4>@snote.Title</h4>
+                                </div>
+                                <div class="res-book-content">
+                                    <div style="display: inline-flex; width: 100%;"><div class="img-icon"><img src="~/images/university.png" alt=""></div><p>@snote.UniversityName, @snote.Country</p></div>
+                                    <div style="display: inline-flex; width: 100%;"><div class="img-icon"><img src="~/images/pages.png" alt=""></div><p>@snote.NumberOfPages Pages</p></div>
+                                    <div style="display: inline-flex; width: 100%;"><div class="img-icon"><img src="~/images/calendar.png" alt=""></div><p>@snote.CreatedBy</p></div>
+                                    <div style="display: inline-flex; width: 100%;"><div class="img-icon"><img src="~/images/flag.png" alt=""></div><p style="color: #df3434;">5 Users marked this note as inappropriate</p></div>
+                                    <div id="star-rating" style="display: inline-flex; width: 100%;">
+                                        <img src="~/images/star.png" class="img-fluid" alt="">
+                                        <img src="~/images/star.png" class="img-fluid" alt="">
+                                        <img src="~/images/star.png" class="img-fluid" alt="">
+                                        <img src="~/images/star.png" class="img-fluid" alt="">
+                                        <img src="~/images/star-white.png" class="img-fluid" alt="">
+                                        <p>100 Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*</a>*@
+        </div>
+    }
+
+</div>

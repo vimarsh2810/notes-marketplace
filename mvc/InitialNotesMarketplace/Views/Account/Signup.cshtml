@@ -1,0 +1,89 @@
+﻿@model InitialNotesMarketplace.Models.Extended.signup
+
+@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="sign-up">
+    <img src="~/images/pre-login/banner-with-overlay.jpg" id="forgot-pw-bg-img" alt="">
+
+    <div id="forgot-pw-content">
+        <div id="logo">
+            <img src="~/images/pre-login/top-logo.png" class="img-fluid" alt="">
+        </div>
+        <div class="container" id="forgot-pw-form">
+            <div id="forgot-pw-heading">
+                <p>Create an Account</p>
+            </div>
+            <div id="forgot-pw-text-1">
+                <p>Enter your details to sign up</p>
+            </div>
+            <div id="forgot-pw-text-1">
+                <p style="color: #47cf48;"><img src="~/images/Artboard 1.png" style="width: 15px; height: 15px; transform: translateY(-2px);" alt=""> Your account has been successfully created.</p>
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group ip-text">
+                    <div class="input-auth">
+                        @*<label for="sign-up-fname">First Name*</label>*@
+                        @Html.LabelFor(model => model.Firstname)
+                        @*<input type="text" class="form-control input-field" id="sign-up-fname" placeholder="Enter your first name">*@
+                        @Html.TextBoxFor(model => model.Firstname, new { @class = "form-control input-field", id = "sign-up-fname", placeholder = "Enter your first name" })
+                        @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group ip-text">
+                    <div class="input-auth">
+                        @*<label for="sign-up-lname">Last Name*</label>*@
+                        @Html.LabelFor(model => model.Lastname)
+                        @*<input type="text" class="form-control input-field" id="sign-up-lname" placeholder="Enter your last name">*@
+                        @Html.TextBoxFor(model => model.Lastname, new { @class = "form-control input-field", id = "sign-up-lname", placeholder = "Enter your last name" })
+                        @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group ip-text">
+                    <div class="input-auth">
+                        @*<label for="email">Email</label>*@
+                        @Html.LabelFor(model => model.EmailID)
+                        @*<input type="text" class="form-control input-field" id="email" placeholder="Enter your email">*@
+                        @Html.TextBoxFor(model => model.EmailID, new { @class = "form-control input-field", id = "email", placeholder = "Enter your email address" })
+                        @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group ip-text" style="position: relative">
+                    <div class="input-auth">
+                        @*<label for="pw-1">Password</label>*@
+                        @Html.LabelFor(model => model.Password)
+                        @*<input type="password" class="form-control input-field" id="pw-1" placeholder="Enter your password">*@
+                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control input-field", id = "pw-1", @type = "password", placeholder = "Enter your password" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        <span class="show-pass"><img src="~/images/eye.png" class="img-fluid toggle-password" alt="eye-icon" toggle="#pw-1"></span>
+                    </div>
+                </div>
+                <div class="form-group ip-text" style="position: relative">
+                    <div class="input-auth">
+                        @*<label for="pw-2">Confirm Password</label>*@
+                        @Html.LabelFor(model => model.ConfirmPassword)
+                        @*<input type="password" class="form-control input-field" id="pw-2" placeholder="Enter your password">*@
+                        @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control input-field", id = "pw-2", @type = "password", placeholder = "Re-enter your password" })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        <span class="show-pass"><img src="~/images/eye.png" class="img-fluid toggle-password" alt="eye-icon" toggle="#pw-2"></span>
+                    </div>
+                </div>
+                <div id="sign-up-btn">
+                    <button type="submit" class="btn btn-forgot-pw">SIGN UP</button>
+                </div>
+                <div id="sign-up-text-2">
+                    <p>Already have an account?<a href="/Account/Login" style="text-decoration: none;"> <span style="color: #6255a5;">Login</span></a></p>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>
+
+<script src="~/Scripts/jquery-3.5.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/script.js"></script>

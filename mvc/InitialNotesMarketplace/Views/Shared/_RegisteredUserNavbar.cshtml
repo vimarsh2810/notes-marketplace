@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@ViewBag.Title - My ASP.NET Application</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/pagination-search-page.css">
+<link rel="stylesheet" href="~/Content/style.css">
+<link rel="stylesheet" href="~/Content/responsive.css">
+
+
+<body style="">
+    <section id="nav-header" style="height: 100px; padding-top:unset; padding-bottom:unset">
+        <header>
+            <nav class="navbar navbar-expand-md fixed-top white-nav">
+                <div class="container">
+                    <div class="img-logo" style="margin-top: auto; margin-bottom: auto;">
+                        <a href="" class="navbar-brand">
+                            <img src="~/images/logo.png" class="img-fluid" alt="">
+                        </a>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" style="margin-left: auto; float: right;" id="navbarSupportedContent">
+                        <ul class="navbar-nav" style="margin-left: auto;">
+                            <li class="nav-item active">
+                                <a class="nav-link purple-link" href="/RegisteredUser/SearchNotes">Search Notes</a>
+                                @*@Html.ActionLink("Search Notes", "SearchNotes", "RegisteredUser", new { @class = "nav-link purple-link" })*@
+                            </li>
+                            <li class="nav-item">
+                                @*<a class="nav-link purple-link" href="">Sell Your Notes</a>*@
+                                @Html.ActionLink("Sell Your Notes", "SellYourNotes", "RegisteredUser", new { @class = "nav-link purple-link" })
+                            </li>
+                            <li class="nav-item">
+                                @*<a class="nav-link purple-link" href="buyers-requests.html">Buyer Requests</a>*@
+                                @Html.ActionLink("Buyer Requests", "BuyerRequests", "RegisteredUser", new { @class = "nav-link purple-link" })
+                            </li>
+                            <li class="nav-item">
+                                @*<a class="nav-link purple-link" href="FAQ.html">FAQ</a>*@
+                                @Html.ActionLink("FAQ", "FAQ", "RegisteredUser", new { @class = "nav-link purple-link" })
+                            </li>
+                            <li class="nav-item">
+                                @*<a class="nav-link purple-link" href="contact-us.html">Contact Us</a>*@
+                                @Html.ActionLink("Contact Us", "ContactUs", "RegisteredUser", new { @class = "nav-link purple-link" })
+                            </li>
+                            <li class="nav-item">
+                                @*<a id="nav-btn" class="nav-link btn btn-login-navbar-purple white-link d-flex align-items-center" href="#">Logout</a>*@
+                                @*@Html.ActionLink("Logout", "Logout", "Account", new { @class = "nav-link btn btn-login-navbar-purple white-link d-flex align-items-center" })*@
+                                @Html.RouteLink("Logout", new { action = "Logout", controller = "Account" }, new { id = "nav-btn", @class = "nav-link btn btn-login-navbar-purple white-link d-flex align-items-center" })
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+    </section>
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/jquery.tablesorter.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/script.js"></script>
+    @RenderBody();
+</body>
+
+
+
+
+

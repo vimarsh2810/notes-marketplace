@@ -1,0 +1,79 @@
+﻿@model InitialNotesMarketplace.Models.Extended.login
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="login">
+    <img src="images/pre-login/banner-with-overlay.jpg" id="login-bg-img" alt="">
+
+    <div id="login-content">
+        <div id="logo">
+            <img src="~/images/pre-login/top-logo.png" class="img-fluid" alt="">
+        </div>
+        <div class="container-cust" id="login-form">
+            <div id="login-heading">
+                <p>Login</p>
+            </div>
+            <div id="login-text-1">
+                <p>Enter your email address and password to login</p>
+                @if(ViewBag.CustomMessage != null)
+                {
+                    <p class = "text-danger">@ViewBag.CustomMessage</p>
+                }
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group ip-text">
+                    <div class="input-auth">
+                        @*<label for="email">Email</label>*@
+                        @Html.LabelFor(model => model.EmailID)
+                        @*<input type="text" class="form-control input-field" id="email" placeholder="Enter your email">*@
+                        @Html.TextBoxFor(model => model.EmailID, new { @class = "form-control input-field", id = "email", value = ViewBag.username, placeholder = "Enter your email" })
+                        @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group ip-text" style="position:relative">
+                    <div class="input-auth">
+                        <div class="row">
+                            <div class="col-5">
+                                @Html.LabelFor(model => model.Password)
+                            </div>
+                            <div class="col-7">
+                                @*<a href="forgot-password.html" style="float: right;">Forgot password?</a>*@
+                                @Html.ActionLink("Forgot Password?", "ForgotPassword", "Account", new { id = "mtop", style = "float: right;text-decoration: none; color: #6255a5" })
+                            </div>
+                        </div>
+
+                        @*<input type="password" class="form-control input-field" id="password" placeholder="Enter your password">*@
+                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control input-field", id = "password", value = ViewBag.password, @type = "password", placeholder = "Enter your password" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        @*@Html.ValidationSummary(false, "", new { @class = "text-danger", id = "validation-summary" })*@
+                        <span class="show-pass"><img src="~/images/eye.png" class="img-fluid toggle-password" alt="eye-icon" toggle="#password"></span>
+                    </div>
+                </div>
+                <div class="form-group ip-cb">
+                    <div class="input-auth">
+                        @*<input type="checkbox" id="exampleCheck1" style="margin-bottom: 30px;">*@
+                        @Html.CheckBoxFor(model => model.RememberMe, new { id = "exampleCheck1", style = "margin-bottom: 30px;" })
+                        @*<label for="exampleCheck1" style="vertical-align: middle;">Remember me</label>*@
+                        @Html.LabelFor(model => model.RememberMe, new { style = "vertical-align: middle;" })
+                    </div>
+                </div>
+                <div id="login-btn">
+                    <button type="submit" class="btn btn-login">LOGIN</button>
+                </div>
+                <div id="login-text-2">
+                    <p>Don't have an account?<a href="/Account/Signup" style="text-decoration: none; color: #6255a5"> Sign Up</a></p>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>
+
+<script src="~/Scripts/jquery-3.5.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/script.js"></script>

@@ -1,0 +1,118 @@
+﻿@model InitialNotesMarketplace.Models.User
+@using InitialNotesMarketplace.Models
+@{
+    ViewBag.Title = "BuyerRequests";
+    Layout = "~/Views/Shared/_RegisteredUserNavbar.cshtml";
+}
+
+
+
+<section id="buyers-requests-page">
+    <div class="container">
+        <div id="buyers-requests-table">
+
+            <div class="table-wrapper-inner">
+
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div class="table-heading">
+                            <h3 style="font-size: 30px; line-height: 34px;">Buyers Requests</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 d-flex justify-content-end align-items-center" style="margin-bottom: 10px;">
+                        <input type="text" class="form-control search-ip input-field common-search" style="display: inline-block;" id="members-search"
+                               placeholder="Search">
+                        <a class="btn btn-search btn-cmn common-btn" id="buyers-requests-btn">SEARCH</a>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="pager" class="table tablesorter data-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="sr-col">SR NO.</th>
+                                <th scope="col">NOTE TITLE</th>
+                                <th scope="col">CATEGORY</th>
+                                <th scope="col">BUYER</th>
+                                <th scope="col">PHONE NO.</th>
+                                <th scope="col">SELL TYPE</th>
+                                <th scope="col">PRICE</th>
+                                <th scope="col">DOWNLOADED DATE/TIME</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="common-tbody">
+                            @{
+                                DBEntities db = new DBEntities();
+                                var id = Model.ID;
+                                var buyerRequests = db.Downloads.Where(x => x.IsSellerHasAllowedDownload == false && x.SellerID == id);
+                                var srno = 0;
+                            }
+                            @foreach (Download dl in buyerRequests)
+                            {
+                                srno = srno + 1;
+                                var category = db.NoteCategories.First(x => x.ID == dl.NoteCategory);
+                                var buyer = db.Users.First(x => x.ID == dl.DownloaderID);
+                                var phno = db.UserProfiles.First(x => x.UserID == dl.DownloaderID);
+                                <tr>
+                                    <td class="sr-col">@srno</td>
+                                    <td class="purple">@dl.NoteTitle</td>
+                                    <td>@category.Name</td>
+                                    <td>@buyer.EmailID</td>
+                                    <td>@phno.PhoneNoCountryCode @phno.PhoneNo</td>
+                                    @if (dl.IsPaid == true)
+                                    {
+                                        <td>Paid</td>
+                                    }
+                                    else
+                                    {
+                                        <td>Free</td>
+                                    }
+                                    <td>@dl.PurchasedPrice</td>
+                                    <td>@dl.CreatedDate</td>
+                                    <td><img src="~/images/Dashboard/eye.png" style="margin-right: 10px;"></td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <img src="~/images/admin/dots.svg" style="margin-right: 10px;" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Allow Download</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div id="pageNavPosition" class="pager-nav" style="margin-bottom: 30px;"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<hr style="margin: 0;">
+<footer class="text-left" style="margin-top: auto">
+
+    <div class="container">
+        <div class="row" style="height: 80px;">
+            <div class="col-xl-12" style="display: inline-block;">
+                <div class="footer-wrap">
+                    <p>Copyright &copy; TatvaSoft All Rights Reserved</p>
+                    <ul class="social-list">
+                        <li><a href="#"><img src="~/images/facebook.png" alt=""></a></li>
+                        <li><a href="#"><img src="~/images/linkedin.png" alt=""></a></li>
+                        <li><a href="#"><img src="~/images/twitter.png" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="~/Scripts/table-sort.js"></script>
+<script src="~/Scripts/common-pagination.js"></script>

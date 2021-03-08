@@ -1,0 +1,151 @@
+﻿@model InitialNotesMarketplace.Models.User
+@using InitialNotesMarketplace.Models
+
+@{
+    ViewBag.Title = "AdminDashboard";
+    Layout = "~/Views/Shared/_SuperAdminNavbar.cshtml";
+}
+
+<section id="admin-dashboard-page">
+    <div class="container">
+        @{
+            DBEntities _db = new DBEntities();
+            var PublishedNotes = _db.SellerNotes.Where(x => x.Status == 9);
+            var InReviewNotesCount = _db.SellerNotes.Where(x => x.Status == 7 || x.Status == 8).Count();
+            var srno = 0;
+        }
+
+        <!-- Dashboard -->
+        <div id="admin-dashboard">
+
+            <div id="admin-dashboard-heading">
+                <h3>Dashboard</h3>
+            </div>
+
+            <div class="row" id="admin-dashboard-content">
+                <div class="col-xl-4 col-sm-4 col-12">
+                    <div class="admin-dashboard-content-wrapper">
+                        <div class="admin-dashboard-content-inner">
+                            <h3>@InReviewNotesCount</h3>
+                            <p>Numbers of Notes in Review for Publish</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-4 col-12">
+                    <div class="admin-dashboard-content-wrapper">
+                        <div class="admin-dashboard-content-inner">
+                            <h3>103</h3>
+                            <p>Number of new Notes Downloaded(last 7 days)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-4 col-12">
+                    <div class="admin-dashboard-content-wrapper">
+                        <div class="admin-dashboard-content-inner">
+                            <h3>223</h3>
+                            <p>Number of new Registration(last 7 days)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Published Notes -->
+
+        <div id="adm-published-notes">
+
+            <div class="table-wrapper-inner">
+
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div class="table-heading">
+                            <h3 style="font-size: 30px; line-height: 34px;">Published Notes</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 d-flex justify-content-end align-items-center" style="margin-bottom: 10px;">
+                        <input type="text" class="form-control search-ip input-field common-search" style="display: inline-block;" id="published-search"
+                               placeholder="Search">
+                        <a class="btn btn-search btn-cmn common-btn" id="published-btn">SEARCH</a>
+                        <select class="form-control" id="select-month" required>
+                            <option value="" selected hidden>Month</option>
+                            <option value="Computer Science">January</option>
+                            <option value="Mathematics">February</option>
+                        </select>
+                    </div>
+                    <div id="alt-select-month" class="col-md-6  col-12">
+                        <select class="form-control" id="select-month-alt" required>
+                            <option value="" selected hidden>Month</option>
+                            <option value="Computer Science">January</option>
+                            <option value="Mathematics">February</option>
+                            <option value="Mathematics">March</option>
+                            <option value="Mathematics">April</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="pager" class="table tablesorter data-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="action-th">SR NO.</th>
+                                <th scope="col">TITLE</th>
+                                <th scope="col">CATEOGORY</th>
+                                <th scope="col" class="action-th">ATTACHMENT SIZE</th>
+                                <th scope="col" class="action-th">SELL TYPE</th>
+                                <th scope="col">PRICE</th>
+                                <th scope="col">PUBLISHER</th>
+                                <th scope="col">PUBLISHED DATE</th>
+                                <th scope="col" class="wrappable action-th">NUMBER OF DOWNLOADS</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="published-tbody">
+
+                            @foreach (SellerNote snote in PublishedNotes)
+                            {
+                                User seller = _db.Users.FirstOrDefault(x => x.ID == snote.SellerID);
+                                var downloadCount = _db.Downloads.Where(x => x.NoteID == snote.ID);
+                                srno = srno + 1;
+                                <tr>
+                                    <td class="action-img-td">@srno</td>
+                                    <td>@snote.Title</td>
+                                    <td>@snote.Category</td>
+                                    <td class="action-img-td">10KB</td>
+                                    <td class="action-img-td">Free</td>
+                                    <td>@snote.SellingPrice</td>
+                                    <td>@seller.Firstname @seller.Lastname</td>
+                                    <td>@snote.ModifiedDate</td>
+                                    <td class="action-img-td">@downloadCount</td>
+                                    <td><img src="images/admin/dots.svg" alt=""></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div id="pageNavPosition" class="pager-nav" style="margin-bottom: 30px;"></div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<hr style="margin: 0;">
+<footer class="text-left" id="admin-ft">
+
+    <div class="container">
+        <div class="row" id="footer-row">
+            <div class="col-xl-12">
+                <div class="footer-wrap-adm">
+                    <p class="ft-left" style="margin-bottom: 0;">Version : 1.1.24</p>
+                    <p class="ft-right">Copyright &copy; TatvaSoft All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JQuery -->
+<script src="~/Scripts/table-sort.js"></script>
+<script src="~/Scripts/common-pagination.js"></script>

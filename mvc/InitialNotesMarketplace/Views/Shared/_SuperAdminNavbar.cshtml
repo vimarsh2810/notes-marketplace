@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "_SuperAdminNavbar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model InitialNotesMarketplace.Models.User
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@ViewBag.Title - My ASP.NET Application</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/style.css">
+<link rel="stylesheet" href="~/Content/responsive.css">
+
+<section id="nav-header" style="height: 100px;">
+    <header>
+        <nav class="navbar navbar-expand-md fixed-top white-nav">
+            <div class="container">
+                <div class="img-logo" style="margin-top: auto; margin-bottom: auto;">
+                    <a href="" class="navbar-brand">
+                        <img src="~/images/logo.png" class="img-fluid" alt="">
+                    </a>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" style="margin-left: auto; float: right;" id="navbarSupportedContent">
+                    <ul class="navbar-nav" style="margin-left: auto;">
+
+                        <li class="nav-item">
+                            @*<a class="nav-link purple-link" href="admin-dashboard.html">Dashboard</a>*@
+                            @Html.ActionLink("Dashboard", "Dashboard", "Admin", new { @class = "nav-link purple-link" })
+                        </li>
+                        <li class="nav-item active">
+                            <div class="dropdown">
+                                <a style="cursor: pointer;" class="nav-link purple-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">Notes</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    @*<a class="dropdown-item" href="notes-under-review.html">Notes Under Review</a>*@
+                                    @Html.ActionLink("Notes Under Review", "NotesUnderReview", "Admin", new { @class = "dropdown-item" })
+                                    @*<a class="dropdown-item" href="published-notes.html">Published Notes</a>*@
+                                    @Html.ActionLink("Published Notes", "PublishedNotes", "Admin", new { @class = "dropdown-item" })
+                                    @*<a class="dropdown-item" href="downloaded-notes.html">Downloaded Notes</a>*@
+                                    @Html.ActionLink("Downloaded Notes", "DownloadedNotes", "Admin", new { @class = "dropdown-item" })
+                                    @*<a class="dropdown-item" href="rejected-notes.html">Rejected Notes</a>*@
+                                    @Html.ActionLink("Rejected Notes", "RejectedNotes", "Admin", new { @class = "dropdown-item" })
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            @*<a class="nav-link purple-link" href="members.html">Members</a>*@
+                            @Html.ActionLink("Members", "Members", "Admin", new { @class = "nav-link purple-link" })
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a style="cursor: pointer;" class="nav-link purple-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">Reports</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    @*<a class="dropdown-item" href="spam.html">Spam Reports</a>*@
+                                    @Html.ActionLink("Spam Reports", "SpamReports", "Admin", new { @class = "dropdown-item" })
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a style="cursor: pointer;" class="nav-link purple-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">Settings</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    @*<a class="dropdown-item" href="manage-system-configuration.html">Manage System Configurations</a>*@
+                                    @Html.ActionLink("Manage System Configurations", "ManageSystemConfigurations", "Admin", new { @class = "dropdown-item" })
+                                    @*<a class="dropdown-item" href="manage-admin.html">Manage Administrators</a>*@
+                                    @Html.ActionLink("Manage Administrators", "ManageAdministrators", "Admin", new { @class = "dropdown-item" })
+                                    @*<a class="dropdown-item" href="manage-category.html">Manage Category</a>*@
+                                    @Html.ActionLink("Manage Category", "ManageCategory", "Admin", new { @class = "dropdown-item" })
+                                    @*<a class="dropdown-item" href="manage-type.html">Manage Type</a>*@
+                                    @Html.ActionLink("Manage Type", "ManageType", "Admin", new { @class = "dropdown-item" })
+                                    @*<a class="dropdown-item" href="manage-country.html">Manage Countries</a>*@
+                                    @Html.ActionLink("Manage Countries", "ManageCountries", "Admin", new { @class = "dropdown-item" })
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a style="cursor: pointer;" class="nav-link purple-link pro-pic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="images/reviewer-1.png" alt="">
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    @*<a class="dropdown-item" href="admin-my-profile.html">Update Profile</a>*@
+                                    @Html.ActionLink("Update Profile", "UpdateProfile", "Admin", new { @class = "dropdown-item" })
+                                    @*<a class="dropdown-item" href="change-password.html">Change Password</a>*@
+                                    @Html.ActionLink("Change Password", "ChangePassword", "Account", new { @class = "dropdown-item" })
+                                    @*<a class="dropdown-item" href="index.html" style="color: #6255a5;">LOGOUT</a>*@
+                                    @Html.ActionLink("LOGOUT", "Logout", "Account", new { @class = "dropdown-item", style = "color: #6255a5" })
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            @*<a id="nav-btn" class="nav-link btn btn-login-navbar-purple white-link d-flex align-items-center" href="#">Logout</a>*@
+                            @Html.ActionLink("Logout", "Logout", "Account", new { @class = "nav-link btn btn-login-navbar-purple white-link d-flex align-items-center" })
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+</section>
+
+<script src="~/Scripts/jquery-3.5.1.js"></script>
+<script src="~/Scripts/jquery.tablesorter.js"></script>
+<script src="~/Scripts/popper.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/script.js"></script>
+@RenderBody();
+

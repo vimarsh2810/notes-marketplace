@@ -1,0 +1,354 @@
+﻿@model InitialNotesMarketplace.Models.User
+@using InitialNotesMarketplace.Models
+@{
+    ViewBag.Title = "UserDashboard";
+    Layout = "~/Views/Shared/_RegisteredUserNavbar.cshtml";
+}
+
+<section id="dashboard-page">
+    <div class="container">
+
+        <div id="dashboard">
+
+            <div class="row">
+                <div class="col-6">
+                    <div id="dashboard-heading">
+                        <h3 style="float: left;">Dashboard</h3>
+                    </div>
+                </div>
+                <div class="col-6 d-flex justify-content-end align-items-center" style="margin-bottom: 25px;">
+                    <a href="/RegisteredUser/AddNote" class="btn btn-search btn-cmn" style="float: right; margin-top: auto; z-index: 100;" id="add-note-btn">ADD NOTE</a>
+                    @*@Html.ActionLink("ADD NOTE", "AddNote", "RegisteredUser", new { @class = "btn btn-search btn-cmn", style = "float: right; margin-top: auto; z-index: 100", id = "add-note-btn" });*@
+                </div>
+            </div>
+
+            <div class="row" id="dashboard-content">
+                <div class="col-xl-6 col-lg-6 col-12" id="user-dash-left">
+                    <div class="container">
+                        <div class="row" id="dashboard-left">
+                            <div class="col-xl-4 col-lg-4 col-4 dashboard-content-wrapper-left" style="border-right: 1px solid #d1d1d1;">
+                                <div class="dashboard-content-inner">
+                                    <img src="~/images/Dashboard/earning-icon.svg" alt="">
+                                    <h2>My Earning</h2>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-4 dashboard-content-wrapper-left" style="position: relative;">
+                                <div class="dashboard-content-inner">
+                                    @{
+                                        int id = Model.ID;
+                                        DBEntities db = new DBEntities();
+                                        var soldNotesCount = db.Downloads.Where(x => x.SellerID == id).Count();
+                                        var buyerRequestsCount = db.Downloads.Where(x => x.SellerID == id && x.IsSellerHasAllowedDownload == false).Count();
+                                        var myDownloadCount = db.Downloads.Where(x => x.DownloaderID == id && x.IsSellerHasAllowedDownload == true).Count();
+                                        var myRejectedNotesCount = db.SellerNotes.Where(x => x.Status == 10 && x.SellerID == id).Count();
+                                        var InReviewNotes = db.SellerNotes.Where(x => x.Status == 6 || x.Status == 7 || x.Status == 8).Where(x => x.SellerID == id);
+                                        var PublishedNotes = db.SellerNotes.Where(x => x.Status == 9 && x.SellerID == id);
+                                        var moneyEarned = 0.00;
+                                        foreach (Download dl in db.Downloads.Where(x => x.SellerID == id))
+                                        {
+                                            moneyEarned = moneyEarned + (double)dl.PurchasedPrice;
+
+                                        }
+                                    }
+                                    <h3>@soldNotesCount</h3>
+                                    <p>Number of Notes Sold</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-4 dashboard-content-wrapper-left" style="position: relative;">
+                                <div class="dashboard-content-inner">
+                                    <h3>$@moneyEarned</h3>
+                                    <p>Money Earned</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-sm-4 col-12">
+                    <div class="dashboard-content-wrapper">
+                        <div class="dashboard-content-inner">
+                            <h3>@myDownloadCount</h3>
+                            <p>My Downloads</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-sm-4 col-12">
+                    <div class="dashboard-content-wrapper">
+                        <div class="dashboard-content-inner">
+                            <h3>@myRejectedNotesCount</h3>
+                            <p>My Rejected Notes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-sm-4 col-12">
+                    <div class="dashboard-content-wrapper">
+                        <div class="dashboard-content-inner">
+                            <h3>@buyerRequestsCount</h3>
+                            <p>Buyer Requests</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="in-progress">
+
+            <div class="table-wrapper-inner">
+
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div class="table-heading">
+                            <h3 style="font-size: 30px; line-height: 34px;">In Progress Notes</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 d-flex justify-content-end align-items-center" style="margin-bottom: 10px;">
+                        <input type="text" class="form-control search-ip input-field common-search" style="display: inline-block;" id="in-progress-search"
+                               placeholder="Search">
+                        <a class="btn btn-search btn-cmn common-btn" id="in-progress-btn">SEARCH</a>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="pager1" class="table tablesorter data-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ADDED DATE</th>
+                                <th scope="col">TITLE</th>
+                                <th scope="col">CATEOGORY</th>
+                                <th scope="col">STATUS</th>
+                                <th scope="col" class="action-th">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="in-progress-tbody">
+                            @foreach (SellerNote snote in InReviewNotes)
+                            {
+                                <tr>
+                                    @{
+                                        var status = db.ReferenceDatas.First(x => x.ID == @snote.Status);
+                                        var category = db.NoteCategories.First(x => x.ID == @snote.Category);
+                                    }
+                                    <td>@snote.CreatedDate</td>
+                                    <td>@snote.Title</td>
+                                    <td>@category.Name</td>
+
+                                    <td>@status.Datavalue</td>
+                                    <td class="action-img-td">
+                                        <div class="action-img">
+                                            @if (status.Datavalue == "Draft")
+                                            {
+                                                <img src="~/images/Dashboard/edit.png" alt="" style="margin-right: 10px">
+                                                <img src="~/images/delete.png" alt="">
+                                            }
+                                            else
+                                            { <a href="/RegisteredUser/ViewNote?noteID=@snote.ID">
+                                                    <img src="~/images/eye.png" alt="">
+                                                </a>
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-bottom: 30px;" id="pageNavPosition1" class="pager-nav"></div>
+            </div>
+
+        </div>
+
+        <div id="published-notes">
+
+            <div class="table-wrapper-inner">
+
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div class="table-heading">
+                            <h3 style="font-size: 30px; line-height: 34px;">Published Notes</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 d-flex justify-content-end align-items-center" style="margin-bottom: 10px;">
+                        <input type="text" class="form-control search-ip input-field common-search" style="display: inline-block;" id="published-search"
+                               placeholder="Search">
+                        <a class="btn btn-search btn-cmn common-btn" id="published-btn">SEARCH</a>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="pager" class="table tablesorter data-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ADDED DATE</th>
+                                <th scope="col">TITLE</th>
+                                <th scope="col">CATEOGORY</th>
+                                <th scope="col">SELL TYPE</th>
+                                <th scope="col">PRICE</th>
+                                <th scope="col" class="action-th">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="published-tbody">
+                            @foreach (SellerNote snote in PublishedNotes)
+                            {
+                                var category = db.NoteCategories.First(x => x.ID == @snote.Category);
+                                <tr>
+                                    <td>@snote.CreatedDate</td>
+                                    <td>@snote.Title</td>
+                                    <td>@category.Name</td>
+
+                                    @if (snote.IsPaid == true)
+                                    {
+                                        <td>Paid</td>
+                                    }
+                                    else if (snote.IsPaid == false)
+                                    {
+                                        <td>Free</td>
+                                    }
+
+                                    <td>@snote.SellingPrice</td>
+                                    <td class="action-img-td">
+                                        <div class="action-img">
+                                            <a href="/RegisteredUser/ViewNote?noteID=@snote.ID">
+                                                <img src="~/images/eye.png" alt="">
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-bottom: 30px;" id="pageNavPosition" class="pager-nav"></div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<hr style="margin: 0;">
+<footer class="text-left">
+
+    <div class="container">
+        <div class="row" style="height: 80px;">
+            <div class="col-xl-12" style="display: inline-block;">
+                <div class="footer-wrap">
+                    <p>Copyright &copy; TatvaSoft All Rights Reserved</p>
+                    <ul class="social-list">
+                        <li><a href=""><img src="~/images/facebook.png" alt=""></a></li>
+                        <li><a href="#"><img src="~/images/linkedin.png" alt=""></a></li>
+                        <li><a href="#"><img src="~/images/twitter.png" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="~/Scripts/table-sort.js"></script>
+<script src="~/Scripts/common-pagination.js"></script>
+
+<script>
+    // ====== Pagination ==========
+
+    function Pager(tableName, itemsPerPage) {
+        "use strict";
+
+        this.tableName = tableName;
+        this.itemsPerPage = itemsPerPage;
+        this.currentPage = 1;
+        this.pages = 0;
+        this.inited = false;
+
+        this.showRecords = function (from, to) {
+            let rows = document.getElementById(tableName).rows;
+
+            for (let i = 1; i < rows.length; i++) {
+                if (i < from || i > to) {
+                    rows[i].style.display = "none";
+                } else {
+                    rows[i].style.display = "";
+                }
+            }
+        };
+
+        this.showPage = function (pageNumber) {
+            if (!this.inited) {
+                return;
+            }
+
+            let oldPageAnchor = document.getElementById("pg1" + this.currentPage);
+            oldPageAnchor.className = "pg1-normal";
+
+            this.currentPage = pageNumber;
+            let newPageAnchor = document.getElementById("pg1" + this.currentPage);
+            newPageAnchor.className = "pg1-selected";
+
+            let from = (pageNumber - 1) * itemsPerPage + 1;
+            let to = from + itemsPerPage - 1;
+            this.showRecords(from, to);
+
+            let pgNext = document.querySelector(".pg1-next"),
+                pgPrev = document.querySelector(".pg1-prev");
+
+        };
+
+        this.prev = function () {
+            if (this.currentPage > 1) {
+                this.showPage(this.currentPage - 1);
+            }
+        };
+
+        this.next = function () {
+            if (this.currentPage < this.pages) {
+                this.showPage(this.currentPage + 1);
+            }
+        };
+
+        this.init = function () {
+            let rows = document.getElementById(tableName).rows;
+            let records = rows.length - 1;
+
+            this.pages = Math.ceil(records / itemsPerPage);
+            this.inited = true;
+        };
+
+        this.showPageNav = function (pagerName, positionId) {
+            if (!this.inited) {
+                return;
+            }
+
+            let element = document.getElementById(positionId),
+                pagerHtml =
+                    '<span onclick="' +
+                    pagerName +
+                    '.prev();" class="pg1-normal"><img src="../images/left-arrow.png"></span>';
+
+            for (let page = 1; page <= this.pages; page++) {
+                pagerHtml +=
+                    '<span id="pg1' +
+                    page +
+                    '" class="pg1-normal pg1-next" onclick="' +
+                    pagerName +
+                    ".showPage(" +
+                    page +
+                    ');">' +
+                    page +
+                    "</span>";
+            }
+
+            pagerHtml +=
+                '<span onclick="' +
+                pagerName +
+                '.next();" class="pg1-normal"><img src="../images/right-arrow.png"></span>';
+
+            element.innerHTML = pagerHtml;
+        };
+    }
+
+    let pager1 = new Pager("pager1", 5);
+
+    pager1.init();
+    pager1.showPageNav("pager1", "pageNavPosition1");
+    pager1.showPage(1);
+</script>

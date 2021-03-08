@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7ca59f2b65654532a840bfc12665f8ba" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Category" Width="1.5" PointX="2.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Country" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Download" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.NoteCategory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.NoteType" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ReferenceData" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SellerNote" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SellerNotesAttachment" Width="1.5" PointX="5.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SellerNotesReportedIssue" Width="1.5" PointX="7.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SellerNotesReview" Width="1.5" PointX="10.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SystemConfiguration" Width="1.5" PointX="4.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserProfile" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserRole" Width="1.5" PointX="1.5" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_SellerNotes_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Downloads_DownloaderID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Downloads_NoteID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Downloads_SellerID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotesReportedIssues_AgainstDownloadID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotesReviews_AgainstDownloadID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotes_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotes_NoteType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotes_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UserProfile_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotes_ActionedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotes_IsPaid" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotes_SellerID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotesAttachments_NoteID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotesReportedIssues_NoteID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotesReviews_NoteID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotesReportedIssues_ReportedByID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SellerNotesReviews_ReviewedByID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Users_RoleID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

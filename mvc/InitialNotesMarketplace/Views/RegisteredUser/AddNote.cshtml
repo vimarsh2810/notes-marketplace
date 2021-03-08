@@ -1,0 +1,281 @@
+﻿@model InitialNotesMarketplace.Models.Extended.Note
+
+@using InitialNotesMarketplace.Models
+
+@{
+    ViewBag.Title = "AddNote";
+    Layout = "~/Views/Shared/_RegisteredUserNavbar.cshtml";
+}
+
+<section id="add-note">
+    <div class="add-note-header">
+        <h1>Add Notes</h1>
+    </div>
+</section>
+
+<section id="note-info">
+    <div class="container">
+
+        @using (Html.BeginForm("AddNote", "RegisteredUser", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div id="basic-note-details">
+
+                <div class="add-note-heading">
+                    <h3>Basic Note Details</h3>
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-xl-6 col-md-6" id="note-title">
+                        @*<label for="title-note" class="add-note-lbl">Title*</label>*@
+                        @*<input type="text" class="form-control input-field" id="title-note" placeholder="Enter your notes title">*@
+                        @Html.LabelFor(model => model.sellerNote.Title, new { @class = "add-note-lbl" })
+                        @Html.TextBoxFor(model => model.sellerNote.Title, new { @class = "form-control input-field", id = "title-note", placeholder = "Enter your notes title" })
+                    </div>
+
+                    @{
+                        DBEntities db = new DBEntities();
+                        var categoryList = db.NoteCategories.ToList();
+                    }
+
+                    <div class="col-xl-6 col-md-6" id="note-category">
+                        @*<label for="category-note" class="add-note-lbl">Category*</label>*@
+                        <div>
+                            @*<select class="form-control" id="category-note" required>
+                                    <option value="" selected hidden>Select your category</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="Commerce">Commerce</option>
+                                    <option value="Science">Science</option>
+                                    <option value="History">History</option>
+                                </select>*@
+                            @Html.LabelFor(model => model.sellerNote.Category, new { @class = "add-note-lbl" })
+                            @Html.DropDownListFor(model => model.sellerNote.Category, new SelectList(categoryList, "ID", "Name"), "Select your category", new { @class = "form-control", id = "category-note" })
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-md-6" id="note-display-picture">
+                        <label for="display-picture-note" class="add-note-lbl">Display Picture</label><br>
+                        <label for="display-picture-note" class="input-file">
+                            <div class="inside-lbl">
+                                <img src="~/images/Add-notes/upload-file.png" alt=""><br>
+                                <p>Upload a photo</p>
+                            </div>
+                        </label>
+                        @*<input type="file" class="form-control input-field" id="display-picture-note" accept="images/*" placeholder="Upload a photo">*@
+                        @Html.TextBoxFor(model => model.sellerNote.DisplayPicture, new { type = "file", @class = "form-control input-field", id = "display-picture-note", accept = ".jpg" })
+                    </div>
+
+                    <div class="col-xl-6 col-md-6" id="upload-notes">
+                        <label for="note-upload" class="add-note-lbl">Upload Notes*</label>
+                        <label for="note-upload" class="input-file">
+                            <div class="inside-lbl">
+                                <img src="~/images/Add-notes/upload-note.svg" alt=""><br>
+                                <p>Upload your notes</p>
+                            </div>
+                        </label>
+                        @*<input type="file" class="form-control input-field" id="note-upload" accept=".pdf,.doc" placeholder="Upload your notes">*@
+                        @Html.TextBoxFor(model => model.sellerNotesAttachment.FilePath, new { type = "file", @class = "form-control input-field", id = "note-upload", accept = ".pdf,.doc" })
+                    </div>
+
+                    @{
+                        var typeList = db.NoteTypes.ToList();
+                    }
+
+                    <div class="col-xl-6 col-md-6" id="note-type">
+                        @*<label for="type-note" class="add-note-lbl">Type</label>*@
+                        @Html.LabelFor(model => model.sellerNote.NoteType, new { @class = "add-note-lbl" })
+                        <div>
+                            @*<select class="form-control" id="type-note" required>
+                                    <option value="" selected hidden>Select your note type</option>
+                                    <option value="Professional">Professional</option>
+                                    <option value="High School">High School</option>
+                                    <option value="University">University</option>
+                                </select>*@
+
+                            @Html.DropDownListFor(model => model.sellerNote.NoteType, new SelectList(typeList, "ID", "Name"), "Select your type", new { @class = "form-control", id = "type-note" })
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-md-6" id="no-of-pages">
+                        @*<label for="note-pages" class="add-note-lbl">Number of pages</label>*@
+                        @Html.LabelFor(model => model.sellerNote.NumberOfPages, new { @class = "add-note-lbl" })
+                        @*<input type="text" class="form-control input-field" id="note-pages" placeholder="Enter number of note pages">*@
+                        @Html.TextBoxFor(model => model.sellerNote.NumberOfPages, new { @class = "form-control input-field", id = "note-pages" })
+                    </div>
+
+                    <div class="col-xl-12 col-md-12" id="note-description">
+                        @*<label for="description-note" class="add-note-lbl">Description</label>*@
+                        @Html.LabelFor(model => model.sellerNote.Description, new { @class = "add-note-lbl" })
+                        @*<textarea name="description" id="description-note" style="resize: none;" placeholder="Enter your description"></textarea>*@
+                        @Html.TextAreaFor(model => model.sellerNote.Description, new { id = "description-note", style = "resize: none;", placeholder = "Enter your description" })
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="note-institution-details">
+
+                <div class="add-note-heading">
+                    <h3>Institution Information</h3>
+                </div>
+
+                <div class="row">
+
+                    @{
+                        var countryList = db.Countries.ToList();
+                    }
+
+                    <div class="col-xl-6 col-md-6" id="note-country">
+                        @*<label for="country-note" class="add-note-lbl">Country</label>*@
+                        @Html.LabelFor(model => model.sellerNote.Country, new { @class = "add-note-lbl" })
+                        <div>
+                            @*<select class="form-control" id="country-note" required>
+                                    <option value="" selected hidden>Select your country</option>
+                                    <option value="India">India</option>
+                                    <option value="USA">USA</option>
+                                    <option value="UK">UK</option>
+                                    <option value="Canada">Canada</option>
+                                </select>*@
+
+                            @*@Html.DropDownListFor(model => model.sellerNote.Country, countryList, "Select your country", new { @class = "form-control", id = "country-note" })*@
+                            @Html.DropDownListFor(model => model.sellerNote.Country, new SelectList(countryList, "ID", "Name"), "Select your country", new { @class = "form-control", id = "country-note" })
+                        </div>
+
+                    </div>
+
+                    <div class="col-xl-6 col-md-6" id="no-of-pages">
+                        @*<label for="note-institution-name" class="add-note-lbl">Institution Name</label>*@
+                        @Html.LabelFor(model => model.sellerNote.UniversityName, new { @class = "add-note-lbl" })
+                        @*<input type="text" class="form-control input-field" id="note-institution-name" placeholder="Enter your institution name">*@
+                        @Html.TextBoxFor(model => model.sellerNote.UniversityName, new { @class = "form-control input-field", id = "note-institution-name", placeholder = "Enter your institution name" })
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="note-course-details">
+
+                <div class="add-note-heading">
+                    <h3>Course Details</h3>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-xl-6 col-md-6" id="note-course">
+                        @*<label for="course-note" class="add-note-lbl">Course Name</label>*@
+                        @Html.LabelFor(model => model.sellerNote.Course, new { @class = "add-note-lbl" })
+                        @*<input type="text" class="form-control input-field" id="course-note" placeholder="Enter your course name">*@
+                        @Html.TextBoxFor(model => model.sellerNote.Course, new { @class = "form-control input-field", id = "course-note", placeholder = "Enter your course name" })
+                    </div>
+
+                    <div class="col-xl-6 col-md-6" id="note-course-code">
+                        @*<label for="course-code-note" class="add-note-lbl">Course Code</label>*@
+                        @Html.LabelFor(model => model.sellerNote.CourseCode, new { @class = "add-note-lbl" })
+                        @*<input type="text" class="form-control input-field" id="course-code-note" placeholder="Enter your course code">*@
+                        @Html.TextBoxFor(model => model.sellerNote.CourseCode, new { @class = "form-control input-field", id = "course-code-note", placeholder = "Enter your course code" })
+                    </div>
+
+                    <div class="col-xl-6 col-md-6" id="note-professor">
+                        @*<label for="professor-note" class="add-note-lbl">Professor/Lecturer</label>*@
+                        @Html.LabelFor(model => model.sellerNote.Professor, new { @class = "add-note-lbl" })
+                        @*<input type="text" class="form-control input-field" id="professor-note" placeholder="Enter your professor name">*@
+                        @Html.TextBoxFor(model => model.sellerNote.Professor, new { @class = "form-control input-field", id = "professor-note", placeholder = "Enter your professor name" })
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="note-selling-details">
+
+                <div class="add-note-heading">
+                    <h3>Selling Information</h3>
+                </div>
+
+                <div class="row" style="display: flex;">
+
+                    <div class="col-xl-6 col-md-6">
+                        <label class="add-note-lbl" for="" style="width: 100%;">Sell For*</label>
+                        <div id="custom-radio-wrapper" style="display: inline-flex;">
+                            <div id="sell-free">
+                                <label class="custom-radio" for="free">
+                                    <input type="radio" value="free" checked="checked" name="sell-for" id="free">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label for="free" class="radio-lbl">Free</label>
+                            </div>
+                            <div id="sell-paid">
+                                <label class="custom-radio" for="paid">
+                                    <input type="radio" value="paid" name="sell-for" id="paid">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label for="paid" class="radio-lbl">Paid</label>
+                            </div>
+                        </div>
+
+                        <br>
+                        @*<label for="price-note" class="add-note-lbl">Sell Price*</label>*@
+                        @Html.LabelFor(model => model.sellerNote.SellingPrice, new { @class = "add-note-lbl" })
+                        @*<input type="text" class="form-control input-field" id="price-note" placeholder="Enter your price">*@
+                        @Html.TextBoxFor(model => model.sellerNote.SellingPrice, new { @class = "form-control input-field", id = "price-note", placeholder = "Enter your price" })
+
+                    </div>
+
+                    <div class="col-xl-6 col-md-6">
+                        <div id="note-prev-wrapper">
+                            <label for="note-preview" class="add-note-lbl">Note Preview</label>
+                            <label for="note-preview" class="input-file" id="note-prev-ip">
+                                <div class="inside-lbl">
+                                    <img src="~/images/Add-notes/upload-file.png" alt=""><br>
+                                    <p>Upload a file</p>
+                                </div>
+                            </label>
+                            @*<input type="file" class="form-control input-field" id="note-preview" accept="images/*" placeholder="Upload a file">*@
+                            @Html.TextBoxFor(model => model.sellerNote.NotesPreview, new { type = "file", @class = "form-control input-field", id = "note-preview", accept = ".pdf,.doc" })
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row" id="save-publish" style="margin-bottom: 30px;">
+                    <div class="col-xl-12 col-md-12">
+                        <div class="add-note-btn" style="display: inline-block;">
+                            <button type="submit" class="btn btn-add-note btn-cmn" href="#">SAVE</button>
+                        </div>
+                        <div class="add-note-btn" style="display: inline-block;">
+                            <button type="submit" class="btn btn-add-note btn-cmn" href="#">PUBLISH</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</section>
+
+<hr style="margin: 0;">
+<footer class="text-left">
+
+    <div class="container">
+        <div class="row" style="height: 80px;">
+            <div class="col-xl-12" style="display: inline-block;">
+                <div class="footer-wrap">
+                    <p>Copyright &copy; TatvaSoft All Rights Reserved</p>
+                    <ul class="social-list">
+                        <li><a href="#"><img src="~/images/facebook.png" alt=""></a></li>
+                        <li><a href="#"><img src="~/images/linkedin.png" alt=""></a></li>
+                        <li><a href="#"><img src="~/images/twitter.png" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+
+

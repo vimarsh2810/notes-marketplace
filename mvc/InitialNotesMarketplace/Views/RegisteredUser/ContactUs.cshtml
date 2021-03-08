@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_RegisteredUserNavbar.cshtml";
+}
+
+<section id="contact-title">
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+    </div>
+</section>
+
+<section id="contact-us">
+
+    <div class="container">
+        <div id="contact-us-content">
+
+            <div class="get-in-touch-heading">
+                <h3>Get in Touch</h3>
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+
+                    <div class="col-xl-6 col-sm-6">
+                        <div class="row">
+                            <div class="col-xl-12 col-sm-12">
+                                <label class="contact-us-lbl" for="contact-us-full-name">Full Name*</label>
+                                <input type="text" class="form-control input-field mb-30px" name="FullName" placeholder="Enter your full name" id="contact-us-full-name">
+                            </div>
+                            <div class="col-xl-12 col-sm-12">
+                                <label class="contact-us-lbl" for="contact-us-email">Email Address*</label>
+                                <input type="text" class="form-control input-field mb-30px" name="EmailAddress" placeholder="Enter your email address" id="contact-us-email">
+                            </div>
+                            <div class="col-xl-12 col-sm-12">
+                                <label class="contact-us-lbl" for="contact-us-subject">Subject*</label>
+                                <input type="text" class="form-control input-field" name="EmailSubject" placeholder="Enter your subject" id="contact-us-subject">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-sm-6 d-flex flex-column">
+                        <label class="contact-us-lbl" for="contact-us-queries">Comments/Questions*</label>
+                        <textarea class="d-flex flex-column flex-grow-1 form-control input-field" name="Comments" id="contact-us-queries" style="resize: none;" placeholder="Comments..."></textarea>
+                    </div>
+
+                </div>
+
+                <div class="contact-us-btn" style="display: inline-block;">
+                    <button type="submit" class="btn btn-mng-cnt-us btn-cmn">SUBMIT</button>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</section>
+
+<hr style="margin: 0;">
+<footer class="text-left">
+
+    <div class="container">
+        <div class="row" style="height: 80px;">
+            <div class="col-xl-12" style="display: inline-block;">
+                <div class="footer-wrap">
+                    <p>Copyright &copy; TatvaSoft All Rights Reserved</p>
+                    <ul class="social-list">
+                        <li><a href="#"><img src="images/facebook.png" alt=""></a></li>
+                        <li><a href="#"><img src="images/linkedin.png" alt=""></a></li>
+                        <li><a href="#"><img src="images/twitter.png" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+

@@ -1,0 +1,199 @@
+﻿@model InitialNotesMarketplace.Models.SellerNote
+@using InitialNotesMarketplace.Models
+@using InitialNotesMarketplace.Models.Extended
+
+@{
+    ViewBag.Title = "SearchNote";
+    Layout = "~/Views/Shared/_RegisteredUserNavbar.cshtml";
+}
+
+
+
+<section id="search-title">
+    <div class="search-header">
+        <h1>Search Notes</h1>
+    </div>
+</section>
+
+<section id="filters">
+    <div class="container">
+        <div id="search-filter-heading">
+            <h3>Search and Filter notes</h3>
+        </div>
+        <div id="search-select">
+            <div class="row" id="search-options">
+                <div class="col-xl-12" id="search-note">
+                    <input type="text" class="form-control input-field" id="search-note-input" placeholder="Search notes here...">
+                </div>
+            </div>
+
+            @{
+                DBEntities db = new DBEntities();
+            }
+
+            <div class="row" id="select-options">
+                <div class="col-xl-2 col-md-4 col-6">
+                    @{ 
+
+                    }
+                    <div>
+                        @*<select class="form-control" id="search-note-type" required>
+                            <option value="" selected hidden>Select Type</option>
+                            <option value="All Types">All Types</option>
+                            <option value="Professional">Professional</option>
+                            <option value="High School">High School</option>
+                            <option value="University">University</option>
+                        </select>*@
+                        @{SearchNote searchNote = (SearchNote)Session["searchNote"]; }
+                        @Html.DropDownListFor(model => model.NoteType, new SelectList(searchNote.ListTypes, "ID", "Name"), "Select Type", new { @class = "form-control search-note-filter", id = "search-note-type" })                      
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-6">
+
+                    <div>
+                        @*<select class="form-control search-note-filter" required>
+                            <option value="" selected hidden>Select Category</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Commerce">Commerce</option>
+                            <option value="Science">Science</option>
+                            <option value="History">History</option>
+                        </select>*@
+                        @Html.DropDownListFor(model => model.Category, new SelectList(searchNote.ListCategories, "ID", "Name"), "Select Category", new { @class = "form-control search-note-filter", id = "search-note-category" })                      
+
+                    </div>
+
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-6">
+
+                    <div>
+                        @*<select class="form-control search-note-filter" required>
+                            <option value="" selected hidden>Select University</option>
+                            <option value="Stanford University">Stanford University</option>
+                            <option value="Oxford University">Oxford University</option>
+                            <option value="MIT University">MIT University</option>
+                            <option value="Gujarat University">Gujarat University</option>
+                        </select>*@
+                        @Html.DropDownListFor(model => model.UniversityName, new SelectList(searchNote.ListUniversities), "Select University", new { @class = "form-control search-note-filter", id = "search-note-university" })                      
+
+                    </div>
+
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-6">
+
+                    <div>
+                        @*<select class="form-control search-note-filter" required>
+                            <option value="" selected hidden>Select Course</option>
+                            <option value="Vector Algebra">Vector Algebra</option>
+                            <option value="Machine learing">Machine learing</option>
+                            <option value="Accounts">Accounts</option>
+                            <option value="Physics">Physics</option>
+                            <option value="WW2">WW2</option>
+                        </select>*@
+                        @Html.DropDownListFor(model => model.Course, new SelectList(searchNote.ListCourses), "Select Course", new { @class = "form-control search-note-filter", id = "search-note-course" })                      
+
+                    </div>
+
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-6">
+
+                    <div>
+                        @*<select class="form-control search-note-filter" required>
+                            <option value="" selected hidden>Select Country</option>
+                            <option value="All Countries">All Countries</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                            <option value="India">India</option>
+                            <option value="Canada">Canada</option>
+                        </select>*@
+                        @Html.DropDownListFor(model => model.Country, new SelectList(searchNote.ListCountries, "ID", "Name"), "Select Country", new { @class = "form-control search-note-filter", id = "search-note-country" })
+
+                    </div>
+
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-6">
+
+                    <div>
+                        <select class="form-control">
+                            <option value="" selected hidden>Select Rating</option>
+                            <option value="All ratings">All ratings</option>
+                            <option value="1 star">1 star</option>
+                            <option value="2 star">2 star</option>
+                            <option value="3 star">3 star</option>
+                            <option value="4 star">4 star</option>
+                            <option value="5 star">5 star</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="filter-result">
+
+            
+
+            <div id="render-partial-view">
+
+            </div>
+            
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <span class="pagination-control" pagination-data="#results-row" max-page-shown="20">
+
+                        <nav aria-label="search results navigation">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item" start-page="1">
+                                    <a class="page-link" aria-label="Previous">
+                                        <img src="~/images/left-arrow.png" class="img-fluid">
+                                    </a>
+                                </li>
+                                <li class="page-item" end-page="1">
+                                    <a class="page-link" aria-label="Next">
+                                        <img src="~/images/right-arrow.png" class="img-fluid">
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<hr style="margin: 0;">
+<footer class="text-left">
+
+    <div class="container">
+        <div class="row" style="height: 80px;">
+            <div class="col-xl-12" style="display: inline-block;">
+                <div class="footer-wrap">
+                    <p>Copyright &copy; TatvaSoft All Rights Reserved</p>
+                    <ul class="social-list">
+                        <li><a href="#"><img src="~/images/facebook.png" alt=""></a></li>
+                        <li><a href="#"><img src="~/images/linkedin.png" alt=""></a></li>
+                        <li><a href="#"><img src="~/images/twitter.png" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="~/Scripts/search-note-pagination.js"></script>
+

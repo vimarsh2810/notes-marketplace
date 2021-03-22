@@ -374,6 +374,11 @@
 }
 
 @media (max-width: 576px) {
+  .show-pass {
+    right: 50px;
+    top: 35px;
+  }
+
   .mem-det-value p,
   .mem-det-field p {
     font-size: 12px;
@@ -598,6 +603,20 @@
 }
 
 @media (max-width: 400px) {
+  .show-pass {
+    right: 40px;
+    top: 35px;
+  }
+
+  .show-pass .toggle-password {
+    width: 25px;
+    height: 13px;
+  }
+
+  .input-auth input {
+    font-size: 14px;
+  }
+
   .dashboard-content-wrapper-left .dashboard-content-inner p,
   .dashboard-content-wrapper .dashboard-content-inner p {
     font-family: "Open Sans", sans-serif;
